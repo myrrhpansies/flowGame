@@ -1,12 +1,12 @@
 [gd_scene load_steps=17 format=3 uid="uid://bebfmcgp6toxs"]
 
-[ext_resource type="Texture2D" uid="uid://csssrvb5edngs" path="res://sprites/PansySheet.png" id="1_iaa3o"]
+[ext_resource type="Texture2D" uid="uid://csssrvb5edngs" path="res://sprites/PansySheet.png" id="1_sfegd"]
 
-[sub_resource type="Animation" id="Animation_rvq5w"]
-resource_name = "start"
+[sub_resource type="Animation" id="Animation_v8tl8"]
+resource_name = "Bloom"
 length = 0.5
 loop_mode = 1
-step = 0.05
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -17,7 +17,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [15, 16]
 }
 
 [sub_resource type="Animation" id="Animation_t6ync"]
@@ -35,10 +35,9 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_84ciw"]
-resource_name = "sproutRest"
+[sub_resource type="Animation" id="Animation_pq48f"]
+resource_name = "bloomDeath"
 length = 0.5
-loop_mode = 1
 step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -50,75 +49,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [4, 5]
-}
-
-[sub_resource type="Animation" id="Animation_rfkav"]
-resource_name = "sproutTrans"
-length = 1.5
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [6, 7, 8, 9]
-}
-
-[sub_resource type="Animation" id="Animation_lbd46"]
-resource_name = "startTrans"
-length = 1.25
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 5]
-}
-
-[sub_resource type="Animation" id="Animation_0xolk"]
-resource_name = "growthRest"
-length = 0.5
-loop_mode = 1
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [8, 9]
-}
-
-[sub_resource type="Animation" id="Animation_gf1xm"]
-resource_name = "growthTrans"
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [10, 11, 12, 13]
+"values": [17, 18]
 }
 
 [sub_resource type="Animation" id="Animation_ofmg4"]
@@ -156,10 +87,9 @@ tracks/0/keys = {
 "values": [14, 15, 16]
 }
 
-[sub_resource type="Animation" id="Animation_v8tl8"]
-resource_name = "Bloom"
+[sub_resource type="Animation" id="Animation_u0tkv"]
+resource_name = "growDeath"
 length = 0.5
-loop_mode = 1
 step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -171,11 +101,11 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [15, 16]
+"values": [19, 20]
 }
 
-[sub_resource type="Animation" id="Animation_jgjyn"]
-resource_name = "startDeath"
+[sub_resource type="Animation" id="Animation_0xolk"]
+resource_name = "growthRest"
 length = 0.5
 loop_mode = 1
 step = 0.25
@@ -189,7 +119,23 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [23, 24]
+"values": [8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_gf1xm"]
+resource_name = "growthTrans"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13]
 }
 
 [sub_resource type="Animation" id="Animation_uc8ss"]
@@ -210,9 +156,10 @@ tracks/0/keys = {
 "values": [22, 21]
 }
 
-[sub_resource type="Animation" id="Animation_u0tkv"]
-resource_name = "growDeath"
+[sub_resource type="Animation" id="Animation_84ciw"]
+resource_name = "sproutRest"
 length = 0.5
+loop_mode = 1
 step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -224,12 +171,48 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [19, 20]
+"values": [4, 5]
 }
 
-[sub_resource type="Animation" id="Animation_pq48f"]
-resource_name = "bloomDeath"
+[sub_resource type="Animation" id="Animation_rfkav"]
+resource_name = "sproutTrans"
+length = 1.5
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_rvq5w"]
+resource_name = "start"
 length = 0.5
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_jgjyn"]
+resource_name = "startDeath"
+length = 0.5
+loop_mode = 1
 step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -241,7 +224,24 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [17, 18]
+"values": [23, 24]
+}
+
+[sub_resource type="Animation" id="Animation_lbd46"]
+resource_name = "startTrans"
+length = 1.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 5]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2rpu1"]
@@ -264,7 +264,7 @@ _data = {
 
 [node name="Pansy" type="Sprite2D"]
 position = Vector2(542, 297)
-texture = ExtResource("1_iaa3o")
+texture = ExtResource("1_sfegd")
 hframes = 25
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

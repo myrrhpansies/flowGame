@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://dc3st7f6hmcs0"]
+
+[ext_resource type="Script" path="res://Scenes/test_scene.gd" id="1_b2lxo"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_1jwdx"]
+device = -1
+keycode = 4194321
+
+[sub_resource type="Shortcut" id="Shortcut_1s232"]
+events = [SubResource("InputEventKey_1jwdx")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_l1awp"]
+device = -1
+keycode = 4194322
+
+[sub_resource type="Shortcut" id="Shortcut_rjgs0"]
+events = [SubResource("InputEventKey_l1awp")]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6iqjs"]
+bg_color = Color(0.305882, 0.278431, 0.705882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhts2"]
+bg_color = Color(0.933333, 0.415686, 0.337255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5e8s"]
+bg_color = Color(0.831373, 0.517647, 0.137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqhfo"]
+bg_color = Color(0.996078, 0.847059, 0.14902, 1)
+
+[sub_resource type="Theme" id="Theme_il1n0"]
+Button/styles/focus = SubResource("StyleBoxFlat_6iqjs")
+Button/styles/hover = SubResource("StyleBoxFlat_dhts2")
+Button/styles/normal = SubResource("StyleBoxFlat_x5e8s")
+Button/styles/pressed = SubResource("StyleBoxFlat_yqhfo")
+
+[sub_resource type="InputEventKey" id="InputEventKey_7f6of"]
+keycode = 4194319
+
+[sub_resource type="Shortcut" id="Shortcut_xaprs"]
+events = [SubResource("InputEventKey_7f6of")]
+
+[node name="testScene" type="Node2D"]
+script = ExtResource("1_b2lxo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 603.0
+offset_bottom = 424.0
+color = Color(0.94902, 0.772549, 0.580392, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 262.0
+offset_top = 71.0
+offset_right = 302.0
+offset_bottom = 111.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="rain" type="Button" parent="Control"]
+offset_left = 329.0
+offset_top = 289.0
+offset_right = 368.0
+offset_bottom = 320.0
+shortcut = SubResource("Shortcut_1s232")
+text = "rain
+"
+
+[node name="cloud" type="Button" parent="Control"]
+offset_left = 244.0
+offset_top = 341.0
+offset_right = 297.0
+offset_bottom = 372.0
+shortcut = SubResource("Shortcut_rjgs0")
+text = "Cloud"
+
+[node name="sun" type="Button" parent="Control"]
+offset_left = 182.0
+offset_top = 288.0
+offset_right = 220.0
+offset_bottom = 319.0
+theme = SubResource("Theme_il1n0")
+shortcut = SubResource("Shortcut_xaprs")
+text = "Sun"
