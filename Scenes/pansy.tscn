@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://bebfmcgp6toxs"]
+[gd_scene load_steps=18 format=3 uid="uid://bebfmcgp6toxs"]
 
 [ext_resource type="Texture2D" uid="uid://csssrvb5edngs" path="res://sprites/PansySheet.png" id="1_sfegd"]
+[ext_resource type="Script" path="res://Scenes/pansy.gd" id="2_yhgq1"]
 
 [sub_resource type="Animation" id="Animation_v8tl8"]
 resource_name = "Bloom"
@@ -266,6 +267,7 @@ _data = {
 position = Vector2(542, 297)
 texture = ExtResource("1_sfegd")
 hframes = 25
+script = ExtResource("2_yhgq1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "start"

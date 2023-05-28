@@ -1,6 +1,6 @@
 extends Node2D
 var notes = 0
-var testArray = [1,1,1,1]
+var testArray = [1,1,1,1,1,1,1,1,1,1,1,1]
 var inputArray = []
 
 func _ready():
