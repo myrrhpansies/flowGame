@@ -1,7 +1,21 @@
-[gd_scene load_steps=18 format=3 uid="uid://bebfmcgp6toxs"]
+[gd_scene load_steps=18 format=3 uid="uid://dgsc2s4xo5ise"]
 
 [ext_resource type="Texture2D" uid="uid://csssrvb5edngs" path="res://sprites/PansySheet.png" id="1_sfegd"]
-[ext_resource type="Script" path="res://Scenes/pansy.gd" id="2_yhgq1"]
+
+[sub_resource type="GDScript" id="GDScript_ukwah"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$testScene.playStart(test)
+
+func test():
+	print(\"heyehy\")
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass
+"
 
 [sub_resource type="Animation" id="Animation_v8tl8"]
 resource_name = "Bloom"
@@ -267,7 +281,7 @@ _data = {
 position = Vector2(542, 297)
 texture = ExtResource("1_sfegd")
 hframes = 25
-script = ExtResource("2_yhgq1")
+script = SubResource("GDScript_ukwah")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "start"
