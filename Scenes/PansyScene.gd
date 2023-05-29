@@ -1,6 +1,6 @@
 extends Node2D
 var notes = 0
-var testArray = [1,2,3,1,1,1,1,1,1,1,1,1]
+var testArray = [1,2,3]
 var inputArray = []
 var alive = true
 @onready var panPlay = $Pansy/AnimationPlayer
@@ -12,55 +12,41 @@ var looping = true
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	
-func clearArray():
-	if inputArray.size() == m - 1:
-		inputArray = []
-		notes = 0
-	
+			
 func playAlong():
-	if m < 12 and looping == true:
+	if looping == true:
 		for i in testArray.slice(0,m):
-			print(i)
 			if i == 1:
 				$sunBeep2.play()
 				$falseSun.visible = true
 				await $sunBeep2.finished
 				$falseSun.visible = false
-				looping = false	
 			if i == 2:
 				$rainBeep2.play()
 				$falseRain.visible = true
 				await $rainBeep2.finished
 				$falseRain.visible = false
-				looping = false	
 			if i == 3:
 				$cloudBeep2.play()
-				$falseRain.visible = true
-				await $rainBeep2.finished
-				$falseRain.visible = false
-				looping = false		
-			
-	
+				$falseCloud.visible = true
+				await $cloudBeep2.finished
+				$falseCloud.visible = false
+
 func arrowPress():
+	print("m" + str(m))
+	print("inputArray" + str(inputArray))
 	if alive and Input.is_action_just_pressed("leftArrow"):
 		m +=1
-		looping = true
 		inputArray.push_back(1)
 		notes += 1
-		print(inputArray)
 	elif alive and Input.is_action_just_pressed("rightArrow"):
 		m +=1
-		looping = true
 		inputArray.push_back(2)
 		notes += 1	
-		print(inputArray)
 	elif alive and Input.is_action_just_pressed("downArrow"):
 		m +=1
-		looping = true
 		inputArray.push_back(3)
 		notes += 1	
-		print(inputArray)
 	else:
 		pass	
 
@@ -118,11 +104,8 @@ func _process(delta):
 	checkNotes()
 	noteCheckpoints()
 	deathPoints()
-	clearArray()
+
 
 func _on_timer_timeout():
-	print("timeout")
 	playAlong()
 
-func _on_clear_timer_timeout():
-	playAlong()

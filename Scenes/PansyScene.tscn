@@ -508,6 +508,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 autostart = true
 
 [node name="falseSun" type="Sprite2D" parent="."]
@@ -522,11 +523,8 @@ position = Vector2(628.5, 505)
 scale = Vector2(0.635, 0.5)
 texture = ExtResource("3_1c48h")
 
-[node name="clearTimer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-
 [node name="falseCloud" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(547, 592)
 scale = Vector2(0.61, 0.505)
 texture = ExtResource("7_r5skd")
@@ -535,4 +533,3 @@ texture = ExtResource("7_r5skd")
 [connection signal="pressed" from="Control/cloud" to="Control/cloud" method="_on_pressed"]
 [connection signal="pressed" from="Control/sun" to="Control/sun" method="_on_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="clearTimer" to="." method="_on_clear_timer_timeout"]
