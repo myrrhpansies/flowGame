@@ -1,6 +1,6 @@
 extends Node2D
 var notes = 0
-var testArray = [1,2,3]
+var testArray = [1,1,1,1,1,1]
 var inputArray = []
 var alive = true
 @onready var panPlay = $Pansy/AnimationPlayer
@@ -12,7 +12,7 @@ var looping = true
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-			
+
 func playAlong():
 	if looping == true:
 		for i in testArray.slice(0,m):
@@ -32,24 +32,40 @@ func playAlong():
 				await $cloudBeep2.finished
 				$falseCloud.visible = false
 
-func arrowPress():
+#######################resetting array (not working right####################
+func followMe():
+	if notes == m -1  :
+		looping = true
+		inputArray = []
+		notes = 0
+		print("inputArray " + str(inputArray))
+		$playTimer.start()
+
+func checkingShit():
+	print(str(notes) + " notes")
 	print("m" + str(m))
 	print("inputArray" + str(inputArray))
-	if alive and Input.is_action_just_pressed("leftArrow"):
-		m +=1
+
+
+#############recieving user input###################################
+func arrowPress():
+	if alive and Input.is_action_just_released("leftArrow"):
 		inputArray.push_back(1)
 		notes += 1
+		m += 1
+		followMe()
+		checkingShit()
 	elif alive and Input.is_action_just_pressed("rightArrow"):
-		m +=1
 		inputArray.push_back(2)
 		notes += 1	
+		
 	elif alive and Input.is_action_just_pressed("downArrow"):
-		m +=1
 		inputArray.push_back(3)
 		notes += 1	
 	else:
 		pass	
-
+		
+#############Checking that the user input is the same as the computer Array###########
 func checkNotes():
 	if notes == 0:
 		pass
@@ -57,6 +73,8 @@ func checkNotes():
 		alive = false
 		inputArray = []
 		
+		
+############### animations #############################		
 func noteCheckpoints():
 	if alive and notes == 3 and checkpoint == 0:
 		checkpoint += 1
@@ -95,9 +113,11 @@ func deathPoints():
 	elif !alive and deathpoint == 0 and notes >9 and notes <= 12:
 		deathpoint += 1
 		panPlay.play("bloomDeath")
-		
+		inputArray = []
 	else:
 		pass	
+
+###############misc.#######################################
 
 func _process(delta):
 	arrowPress()
@@ -108,4 +128,10 @@ func _process(delta):
 
 func _on_timer_timeout():
 	playAlong()
+	m -= 1
 
+
+
+func _on_play_timer_timeout():
+	playAlong()
+	m-=1
