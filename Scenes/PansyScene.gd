@@ -34,12 +34,11 @@ func playAlong():
 
 #######################resetting array (not working right####################
 func followMe():
-	if notes == m -1  :
-		looping = true
-		inputArray = []
-		notes = 0
-		print("inputArray " + str(inputArray))
-		$playTimer.start()
+	looping = true
+	inputArray = []
+	notes = 0
+	print("inputArray " + str(inputArray))
+	$playTimer.start()
 
 func checkingShit():
 	print(str(notes) + " notes")
@@ -52,9 +51,11 @@ func arrowPress():
 	if alive and Input.is_action_just_released("leftArrow"):
 		inputArray.push_back(1)
 		notes += 1
-		m += 1
-		followMe()
 		checkingShit()
+		if notes == m:
+			m += 1
+			followMe()
+			
 	elif alive and Input.is_action_just_pressed("rightArrow"):
 		inputArray.push_back(2)
 		notes += 1	
@@ -128,7 +129,6 @@ func _process(delta):
 
 func _on_timer_timeout():
 	playAlong()
-	m -= 1
 
 
 
