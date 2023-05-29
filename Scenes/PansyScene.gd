@@ -134,4 +134,3 @@ func _on_timer_timeout():
 
 func _on_play_timer_timeout():
 	playAlong()
-	m-=1
