@@ -530,7 +530,7 @@ scale = Vector2(0.61, 0.505)
 texture = ExtResource("7_r5skd")
 
 [node name="playTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 
 [connection signal="pressed" from="Control/rain" to="Control/rain" method="_on_pressed"]
