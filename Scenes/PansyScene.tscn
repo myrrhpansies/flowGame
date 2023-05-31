@@ -374,6 +374,7 @@ offset_right = 782.0
 offset_bottom = 427.0
 
 [node name="envBack" type="ColorRect" parent="envCon"]
+layout_mode = 0
 offset_left = -11.0
 offset_top = -10.0
 offset_right = 445.0
@@ -386,6 +387,7 @@ libraries = {
 }
 
 [node name="sunTop" type="Sprite2D" parent="envCon"]
+visible = false
 position = Vector2(210, 132)
 texture = ExtResource("5_6f3tu")
 

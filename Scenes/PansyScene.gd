@@ -159,6 +159,7 @@ func deathPoints():
 func _process(_delta):
 	noteCheckpoints()
 	deathPoints()
+	checkNotes()
 
 func _on_timer_timeout():
 	if alive:
