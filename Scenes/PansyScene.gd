@@ -50,11 +50,13 @@ func playAlong():
 
 #######################resetting array (not working right####################
 func followMe():
-	looping = true
-	inputArray = []
-	notes = 0
-	print("inputArray " + str(inputArray))
-	$playTimer.start()
+	if alive:
+		checkNotes()
+		looping = true
+		inputArray = []
+		notes = 0
+		print("inputArray " + str(inputArray))
+		$playTimer.start()
 
 func checkingShit():
 	print(str(notes) + " notes")
@@ -94,34 +96,6 @@ func cloudy():
 			m += 1
 			followMe()
 					
-#func arrowPress():
-#	pass
-#	if alive and Input.is_action_just_released("leftArrow"):
-#		inputArray.push_back(1)
-#		notes += 1
-#		checkingShit()
-#		if notes == m:
-#			blocks[notes - 1].modulate = Color8(248,216,102,255)
-#			m += 1
-#			followMe()
-#	if alive and Input.is_action_just_released("rightArrow"):
-#		inputArray.push_back(2)
-#		notes += 1	
-#		checkingShit()
-#		if notes == m:
-#			blocks[notes - 1].modulate = Color8(110,120,129,255)
-#			m += 1
-#			followMe()
-#	if alive and Input.is_action_just_released("downArrow"):
-#		inputArray.push_back(3)
-#		notes += 1	
-#		checkingShit()
-#		if notes == m:
-#			blocks[notes - 1].modulate = Color8(164,217,231,255)
-#			m += 1
-#			followMe()
-#	else:
-#		pass	
 		
 #############Checking that the user input is the same as the computer Array###########
 func checkNotes():
@@ -177,12 +151,13 @@ func deathPoints():
 ###############misc.#######################################
 
 func _process(_delta):
-	checkNotes()
 	noteCheckpoints()
 	deathPoints()
 
 func _on_timer_timeout():
-	playAlong()
+	if alive:
+		playAlong()
 
 func _on_play_timer_timeout():
-	playAlong()
+	if alive:
+		playAlong()
