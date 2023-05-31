@@ -4,12 +4,14 @@ var testArray = []
 var inputArray = []
 var alive = true
 @onready var panPlay = $Pansy/AnimationPlayer
+@onready var sky = $envCon/envBack
 var checkpoint = 0
 var deathpoint = 0
 var m = 1
 var looping = true
 @onready var blocks = [$dayCounter/HBoxContainer/ColorRect1, $dayCounter/HBoxContainer/ColorRect2, $dayCounter/HBoxContainer/ColorRect3, $dayCounter/HBoxContainer/ColorRect4, $dayCounter/HBoxContainer/ColorRect5, $dayCounter/HBoxContainer/ColorRect6, $dayCounter/HBoxContainer/ColorRect7, $dayCounter/HBoxContainer/ColorRect8, $dayCounter/HBoxContainer/ColorRect9, $dayCounter/HBoxContainer/ColorRect10, $dayCounter/HBoxContainer/ColorRect11, $dayCounter/HBoxContainer/ColorRect12,]
-#@onready var blocks2 = [$dayCounter/HBoxContainer2/ColorRect1, $dayCounter/HBoxContainer2/ColorRect2, $dayCounter/HBoxContainer2/ColorRect3, $dayCounter/HBoxContainer2/ColorRect4, $dayCounter/HBoxContainer2/ColorRect5, $dayCounter/HBoxContainer2/ColorRect6, $dayCounter/HBoxContainer2/ColorRect7, $dayCounter/HBoxContainer2/ColorRect8, $dayCounter/HBoxContainer2/ColorRect9, $dayCounter/HBoxContainer2/ColorRect10, $dayCounter/HBoxContainer2/ColorRect11, $dayCounter/HBoxContainer2/ColorRect12,]
+
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	$sun.sunPressed.connect(sunny)
@@ -17,8 +19,6 @@ func _ready():
 	$cloud.cloudPressed.connect(cloudy)
 	generateArray()
 
-
-	
 func generateArray():
 	var z = 0
 	while z < 12:
@@ -72,6 +72,8 @@ func sunny():
 		notes += 1
 		checkingShit()
 		if notes == m:
+			var tween = get_tree().create_tween()
+			tween.tween_property(sky, "modulate", Color8(197,226,243,255), 1)
 			blocks[notes - 1].modulate = Color8(248,216,102,255)
 			m += 1
 			followMe()
@@ -82,6 +84,8 @@ func rainy():
 		notes += 1	
 		checkingShit()
 		if notes == m:
+			var tween = get_tree().create_tween()
+			tween.tween_property(sky, "modulate", Color8(199,210,217,255), 1)
 			blocks[notes - 1].modulate = Color8(110,120,129,255)
 			m += 1
 			followMe()
@@ -92,6 +96,8 @@ func cloudy():
 		notes += 1	
 		checkingShit()
 		if notes == m:
+			var tween = get_tree().create_tween()
+			tween.tween_property(sky, "modulate", Color8(198,228,239,255), 1)
 			blocks[notes - 1].modulate = Color8(164,217,231,255)
 			m += 1
 			followMe()

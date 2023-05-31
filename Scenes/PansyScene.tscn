@@ -1,9 +1,10 @@
-[gd_scene load_steps=45 format=3 uid="uid://dc3st7f6hmcs0"]
+[gd_scene load_steps=48 format=3 uid="uid://dc3st7f6hmcs0"]
 
 [ext_resource type="Script" path="res://Scenes/PansyScene.gd" id="1_0x3he"]
 [ext_resource type="Texture2D" uid="uid://b0phqpmyiscrm" path="res://sprites/ranButtonDark.png" id="2_5pnjf"]
 [ext_resource type="Texture2D" uid="uid://bmu1mue42kag3" path="res://sprites/ranButton.png" id="3_1c48h"]
 [ext_resource type="Script" path="res://Scenes/rain.gd" id="4_wtmck"]
+[ext_resource type="Texture2D" uid="uid://dvx5qpqkevae7" path="res://sprites/weather/sun01.png" id="5_6f3tu"]
 [ext_resource type="AudioStream" uid="uid://d2bwiagojloml" path="res://sounds/Untitled(3).mp3" id="5_hl120"]
 [ext_resource type="Texture2D" uid="uid://d4etyl3lvppxf" path="res://sprites/cloudButtonDark.png" id="6_7g4nc"]
 [ext_resource type="Texture2D" uid="uid://c5d85m7f7jqlp" path="res://sprites/cloudButton.png" id="7_r5skd"]
@@ -14,6 +15,14 @@
 [ext_resource type="Script" path="res://Scenes/sun.gd" id="12_up5o2"]
 [ext_resource type="AudioStream" uid="uid://cyt56w76ahmnf" path="res://sounds/Untitled(1).mp3" id="13_y0gpx"]
 [ext_resource type="Texture2D" uid="uid://csssrvb5edngs" path="res://sprites/PansySheet.png" id="14_41wet"]
+
+[sub_resource type="Animation" id="Animation_3i6bc"]
+resource_name = "sunFlow"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ciii"]
+_data = {
+"sunFlow": SubResource("Animation_3i6bc")
+}
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ygmux"]
 texture = ExtResource("2_5pnjf")
@@ -355,11 +364,30 @@ offset_right = 1222.0
 offset_bottom = 681.0
 color = Color(0.94902, 0.772549, 0.580392, 1)
 
-[node name="envBack" type="ColorRect" parent="."]
-offset_left = 335.0
-offset_top = 41.0
-offset_right = 791.0
-offset_bottom = 430.0
+[node name="envCon" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 346.0
+offset_top = 51.0
+offset_right = 782.0
+offset_bottom = 427.0
+
+[node name="envBack" type="ColorRect" parent="envCon"]
+offset_left = -11.0
+offset_top = -10.0
+offset_right = 445.0
+offset_bottom = 379.0
+color = Color(1, 0.937255, 0.929412, 1)
+
+[node name="envAnimations" type="AnimationPlayer" parent="envCon"]
+libraries = {
+"": SubResource("AnimationLibrary_8ciii")
+}
+
+[node name="sunTop" type="Sprite2D" parent="envCon"]
+position = Vector2(210, 132)
+texture = ExtResource("5_6f3tu")
 
 [node name="rain" type="Button" parent="."]
 offset_left = 565.0
