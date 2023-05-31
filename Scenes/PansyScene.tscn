@@ -361,20 +361,11 @@ offset_top = 41.0
 offset_right = 791.0
 offset_bottom = 430.0
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 245.0
-offset_top = 202.0
-offset_right = 285.0
-offset_bottom = 242.0
-
-[node name="rain" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 320.0
-offset_top = 253.0
-offset_right = 447.0
-offset_bottom = 354.0
+[node name="rain" type="Button" parent="."]
+offset_left = 565.0
+offset_top = 455.0
+offset_right = 692.0
+offset_bottom = 556.0
 mouse_filter = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_ygmux")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ro0w5")
@@ -382,15 +373,14 @@ button_mask = 0
 shortcut = SubResource("Shortcut_1s232")
 script = ExtResource("4_wtmck")
 
-[node name="rainBeep" type="AudioStreamPlayer2D" parent="Control/rain"]
+[node name="rainBeep" type="AudioStreamPlayer2D" parent="rain"]
 stream = ExtResource("5_hl120")
 
-[node name="cloud" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 241.0
-offset_top = 340.0
-offset_right = 363.0
-offset_bottom = 440.0
+[node name="cloud" type="Button" parent="."]
+offset_left = 486.0
+offset_top = 542.0
+offset_right = 608.0
+offset_bottom = 642.0
 mouse_filter = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_8pqfm")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_h8wjf")
@@ -398,15 +388,14 @@ button_mask = 0
 shortcut = SubResource("Shortcut_rjgs0")
 script = ExtResource("8_x4ve4")
 
-[node name="cloudBeep" type="AudioStreamPlayer2D" parent="Control/cloud"]
+[node name="cloudBeep" type="AudioStreamPlayer2D" parent="cloud"]
 stream = ExtResource("9_p012m")
 
-[node name="sun" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 165.0
-offset_top = 254.0
-offset_right = 285.0
-offset_bottom = 352.0
+[node name="sun" type="Button" parent="."]
+offset_left = 410.0
+offset_top = 456.0
+offset_right = 530.0
+offset_bottom = 554.0
 mouse_filter = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_7m7n1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ciulo")
@@ -415,7 +404,7 @@ shortcut = SubResource("Shortcut_xaprs")
 expand_icon = true
 script = ExtResource("12_up5o2")
 
-[node name="sunBeep" type="AudioStreamPlayer2D" parent="Control/sun"]
+[node name="sunBeep" type="AudioStreamPlayer2D" parent="sun"]
 position = Vector2(-408, -417)
 stream = ExtResource("13_y0gpx")
 
@@ -432,6 +421,7 @@ libraries = {
 }
 
 [node name="dayCounter" type="Control" parent="."]
+visible = false
 custom_minimum_size = Vector2(450, 0)
 layout_mode = 3
 anchors_preset = 0
@@ -530,11 +520,11 @@ scale = Vector2(0.61, 0.505)
 texture = ExtResource("7_r5skd")
 
 [node name="playTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.5
 one_shot = true
 
-[connection signal="pressed" from="Control/rain" to="Control/rain" method="_on_pressed"]
-[connection signal="pressed" from="Control/cloud" to="Control/cloud" method="_on_pressed"]
-[connection signal="pressed" from="Control/sun" to="Control/sun" method="_on_pressed"]
+[connection signal="pressed" from="rain" to="rain" method="_on_pressed"]
+[connection signal="pressed" from="cloud" to="cloud" method="_on_pressed"]
+[connection signal="pressed" from="sun" to="sun" method="_on_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="playTimer" to="." method="_on_play_timer_timeout"]

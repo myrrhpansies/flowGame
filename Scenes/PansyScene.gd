@@ -8,12 +8,17 @@ var checkpoint = 0
 var deathpoint = 0
 var m = 1
 var looping = true
-
-
+@onready var blocks = [$dayCounter/HBoxContainer/ColorRect1, $dayCounter/HBoxContainer/ColorRect2, $dayCounter/HBoxContainer/ColorRect3, $dayCounter/HBoxContainer/ColorRect4, $dayCounter/HBoxContainer/ColorRect5, $dayCounter/HBoxContainer/ColorRect6, $dayCounter/HBoxContainer/ColorRect7, $dayCounter/HBoxContainer/ColorRect8, $dayCounter/HBoxContainer/ColorRect9, $dayCounter/HBoxContainer/ColorRect10, $dayCounter/HBoxContainer/ColorRect11, $dayCounter/HBoxContainer/ColorRect12,]
+#@onready var blocks2 = [$dayCounter/HBoxContainer2/ColorRect1, $dayCounter/HBoxContainer2/ColorRect2, $dayCounter/HBoxContainer2/ColorRect3, $dayCounter/HBoxContainer2/ColorRect4, $dayCounter/HBoxContainer2/ColorRect5, $dayCounter/HBoxContainer2/ColorRect6, $dayCounter/HBoxContainer2/ColorRect7, $dayCounter/HBoxContainer2/ColorRect8, $dayCounter/HBoxContainer2/ColorRect9, $dayCounter/HBoxContainer2/ColorRect10, $dayCounter/HBoxContainer2/ColorRect11, $dayCounter/HBoxContainer2/ColorRect12,]
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	$sun.sunPressed.connect(sunny)
+	$rain.rainPressed.connect(rainy)
+	$cloud.cloudPressed.connect(cloudy)
 	generateArray()
 
+
+	
 func generateArray():
 	var z = 0
 	while z < 12:
@@ -22,7 +27,6 @@ func generateArray():
 		rng.randomize()
 		var num = rng.randi_range(1, 3)
 		testArray.push_back(num)
-		print(str(num) + "random num")
 		print(testArray)
 	
 func playAlong():
@@ -59,36 +63,68 @@ func checkingShit():
 
 
 #############recieving user input###################################
-func arrowPress():
-	if alive and Input.is_action_just_released("leftArrow"):
+
+func sunny():
+	if alive:
 		inputArray.push_back(1)
 		notes += 1
 		checkingShit()
 		if notes == m:
+			blocks[notes - 1].modulate = Color8(248,216,102,255)
 			m += 1
 			followMe()
-			
-	elif alive and Input.is_action_just_released("rightArrow"):
+
+func rainy():
+	if alive:
 		inputArray.push_back(2)
 		notes += 1	
 		checkingShit()
 		if notes == m:
+			blocks[notes - 1].modulate = Color8(110,120,129,255)
 			m += 1
 			followMe()
-	elif alive and Input.is_action_just_released("downArrow"):
+
+func cloudy():
+	if alive:
 		inputArray.push_back(3)
 		notes += 1	
 		checkingShit()
 		if notes == m:
+			blocks[notes - 1].modulate = Color8(164,217,231,255)
 			m += 1
 			followMe()
-	else:
-		pass	
+					
+#func arrowPress():
+#	pass
+#	if alive and Input.is_action_just_released("leftArrow"):
+#		inputArray.push_back(1)
+#		notes += 1
+#		checkingShit()
+#		if notes == m:
+#			blocks[notes - 1].modulate = Color8(248,216,102,255)
+#			m += 1
+#			followMe()
+#	if alive and Input.is_action_just_released("rightArrow"):
+#		inputArray.push_back(2)
+#		notes += 1	
+#		checkingShit()
+#		if notes == m:
+#			blocks[notes - 1].modulate = Color8(110,120,129,255)
+#			m += 1
+#			followMe()
+#	if alive and Input.is_action_just_released("downArrow"):
+#		inputArray.push_back(3)
+#		notes += 1	
+#		checkingShit()
+#		if notes == m:
+#			blocks[notes - 1].modulate = Color8(164,217,231,255)
+#			m += 1
+#			followMe()
+#	else:
+#		pass	
 		
 #############Checking that the user input is the same as the computer Array###########
 func checkNotes():
-#	if notes == 0:
-#		pass
 	if testArray.slice(0,notes) != inputArray.slice(0,m):
 		alive = false
 		inputArray = []
@@ -119,7 +155,8 @@ func noteCheckpoints():
 		deathpoint += 1
 		panPlay.play("BloomWin")
 		await panPlay.animation_finished
-		panPlay.play("fullGrown")	
+		panPlay.play("fullGrown")
+		$dayCounter.visible = true	
 		
 func deathPoints():
 	if !alive and deathpoint == 0:
@@ -139,17 +176,13 @@ func deathPoints():
 
 ###############misc.#######################################
 
-func _process(delta):
-	arrowPress()
+func _process(_delta):
 	checkNotes()
 	noteCheckpoints()
 	deathPoints()
 
-
 func _on_timer_timeout():
 	playAlong()
-
-
 
 func _on_play_timer_timeout():
 	playAlong()
