@@ -1,26 +1,168 @@
-[gd_scene load_steps=48 format=3 uid="uid://dc3st7f6hmcs0"]
+[gd_scene load_steps=56 format=3 uid="uid://dc3st7f6hmcs0"]
 
 [ext_resource type="Script" path="res://Scenes/PansyScene.gd" id="1_0x3he"]
 [ext_resource type="Texture2D" uid="uid://b0phqpmyiscrm" path="res://sprites/ranButtonDark.png" id="2_5pnjf"]
 [ext_resource type="Texture2D" uid="uid://bmu1mue42kag3" path="res://sprites/ranButton.png" id="3_1c48h"]
 [ext_resource type="Script" path="res://Scenes/rain.gd" id="4_wtmck"]
 [ext_resource type="Texture2D" uid="uid://dvx5qpqkevae7" path="res://sprites/weather/sun01.png" id="5_6f3tu"]
+[ext_resource type="Texture2D" uid="uid://4kyplgn0lwsr" path="res://sprites/weather/sun04.png" id="5_7770q"]
 [ext_resource type="AudioStream" uid="uid://d2bwiagojloml" path="res://sounds/Untitled(3).mp3" id="5_hl120"]
+[ext_resource type="Texture2D" uid="uid://64gj3xo8djti" path="res://sprites/weather/sun03.png" id="6_4cryh"]
 [ext_resource type="Texture2D" uid="uid://d4etyl3lvppxf" path="res://sprites/cloudButtonDark.png" id="6_7g4nc"]
+[ext_resource type="Texture2D" uid="uid://brugfs8mqkjo1" path="res://sprites/weather/sun02.png" id="7_hmki1"]
 [ext_resource type="Texture2D" uid="uid://c5d85m7f7jqlp" path="res://sprites/cloudButton.png" id="7_r5skd"]
 [ext_resource type="Script" path="res://Scenes/cloud.gd" id="8_x4ve4"]
+[ext_resource type="Texture2D" uid="uid://b3nypib2lfue5" path="res://sprites/weather/cloudSprites.png" id="9_ngilp"]
 [ext_resource type="AudioStream" uid="uid://cb67f0rhn4mhl" path="res://sounds/Untitled(2).mp3" id="9_p012m"]
 [ext_resource type="Texture2D" uid="uid://dmdt7e7rroahh" path="res://sprites/sunButtonDark.png" id="10_cn64y"]
+[ext_resource type="Texture2D" uid="uid://bk22xnqi7fy1f" path="res://sprites/weather/rain02.png" id="10_thp2u"]
 [ext_resource type="Texture2D" uid="uid://bebopxavibfws" path="res://sprites/sunButton.png" id="11_cvdac"]
 [ext_resource type="Script" path="res://Scenes/sun.gd" id="12_up5o2"]
 [ext_resource type="AudioStream" uid="uid://cyt56w76ahmnf" path="res://sounds/Untitled(1).mp3" id="13_y0gpx"]
 [ext_resource type="Texture2D" uid="uid://csssrvb5edngs" path="res://sprites/PansySheet.png" id="14_41wet"]
 
+[sub_resource type="Animation" id="Animation_np7y2"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_olpif"]
+resource_name = "cloudFlow"
+length = 3.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("clouds:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("clouds:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(662, 180), Vector2(-236, 160)]
+}
+
 [sub_resource type="Animation" id="Animation_3i6bc"]
 resource_name = "sunFlow"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sunss/sunTop:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_6f3tu")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sunss/sunRay1:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_hmki1")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sunss/sunRay1:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 3.13984]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sunss/sunRay2:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_4cryh")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("sunss/sunRay2:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -3.14159]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("sunss/sunRay3:texture")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_7770q")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("sunss/sunRay3:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 3.14159]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("sunss:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.024467, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(513, 71), Vector2(352, -27), Vector2(-330, 15)]
+}
+
+[sub_resource type="Animation" id="Animation_bwhp0"]
+resource_name = "rainFlow"
+loop_mode = 1
+step = 0.01
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8ciii"]
 _data = {
+"RESET": SubResource("Animation_np7y2"),
+"cloudFlow": SubResource("Animation_olpif"),
+"rainFlow": SubResource("Animation_bwhp0"),
 "sunFlow": SubResource("Animation_3i6bc")
 }
 
@@ -362,7 +504,7 @@ offset_left = -21.0
 offset_top = -46.0
 offset_right = 1222.0
 offset_bottom = 681.0
-color = Color(0.94902, 0.772549, 0.580392, 1)
+color = Color(0.960784, 0.811765, 0.670588, 1)
 
 [node name="envCon" type="Control" parent="."]
 clip_contents = true
@@ -379,17 +521,50 @@ offset_left = -11.0
 offset_top = -10.0
 offset_right = 445.0
 offset_bottom = 379.0
-color = Color(1, 0.937255, 0.929412, 1)
+color = Color(0.921569, 0.92549, 0.929412, 1)
 
 [node name="envAnimations" type="AnimationPlayer" parent="envCon"]
+autoplay = "RESET"
 libraries = {
 "": SubResource("AnimationLibrary_8ciii")
 }
 
-[node name="sunTop" type="Sprite2D" parent="envCon"]
-visible = false
-position = Vector2(210, 132)
+[node name="sunss" type="Node2D" parent="envCon"]
+position = Vector2(513, 71)
+
+[node name="sunRay3" type="Sprite2D" parent="envCon/sunss"]
+position = Vector2(209, 131)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_7770q")
+
+[node name="sunRay2" type="Sprite2D" parent="envCon/sunss"]
+position = Vector2(209, 131)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_4cryh")
+
+[node name="sunRay1" type="Sprite2D" parent="envCon/sunss"]
+position = Vector2(209, 131)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_hmki1")
+
+[node name="sunTop" type="Sprite2D" parent="envCon/sunss"]
+position = Vector2(209, 131)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_6f3tu")
+
+[node name="rainn" type="Node2D" parent="envCon"]
+
+[node name="rainCloud" type="Sprite2D" parent="envCon/rainn"]
+visible = false
+position = Vector2(219, 14)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("10_thp2u")
+
+[node name="clouds" type="Sprite2D" parent="envCon"]
+position = Vector2(662, 180)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_ngilp")
+hframes = 2
 
 [node name="rain" type="Button" parent="."]
 offset_left = 565.0

@@ -73,8 +73,9 @@ func sunny():
 		checkingShit()
 		if notes == m:
 			var tween = get_tree().create_tween()
-			tween.tween_property(sky, "modulate", Color8(197,226,243,255), 1)
+			tween.tween_property(sky, "modulate", Color8(233,238,240,255), 1)
 			blocks[notes - 1].modulate = Color8(248,216,102,255)
+			$envCon/envAnimations.play("sunFlow")
 			m += 1
 			followMe()
 
@@ -85,7 +86,7 @@ func rainy():
 		checkingShit()
 		if notes == m:
 			var tween = get_tree().create_tween()
-			tween.tween_property(sky, "modulate", Color8(199,210,217,255), 1)
+			tween.tween_property(sky, "modulate", Color8(235,236,217,237), 1)
 			blocks[notes - 1].modulate = Color8(110,120,129,255)
 			m += 1
 			followMe()
@@ -97,7 +98,8 @@ func cloudy():
 		checkingShit()
 		if notes == m:
 			var tween = get_tree().create_tween()
-			tween.tween_property(sky, "modulate", Color8(198,228,239,255), 1)
+			tween.tween_property(sky, "modulate", Color8(240,246,247,255), 1)
+			$envCon/envAnimations.play("cloudFlow")
 			blocks[notes - 1].modulate = Color8(164,217,231,255)
 			m += 1
 			followMe()
