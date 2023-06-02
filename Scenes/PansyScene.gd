@@ -9,6 +9,7 @@ var checkpoint = 0
 var deathpoint = 0
 var m = 1
 var looping = true
+var weatherGoing = false
 @onready var blocks = [$dayCounter/HBoxContainer/ColorRect1, $dayCounter/HBoxContainer/ColorRect2, $dayCounter/HBoxContainer/ColorRect3, $dayCounter/HBoxContainer/ColorRect4, $dayCounter/HBoxContainer/ColorRect5, $dayCounter/HBoxContainer/ColorRect6, $dayCounter/HBoxContainer/ColorRect7, $dayCounter/HBoxContainer/ColorRect8, $dayCounter/HBoxContainer/ColorRect9, $dayCounter/HBoxContainer/ColorRect10, $dayCounter/HBoxContainer/ColorRect11, $dayCounter/HBoxContainer/ColorRect12,]
 
 
@@ -74,8 +75,8 @@ func sunny():
 		if notes == m:
 			var tween = get_tree().create_tween()
 			tween.tween_property(sky, "modulate", Color8(233,238,240,255), 1)
+			$envCon/envAnimations.queue("sunFlow")
 			blocks[notes - 1].modulate = Color8(248,216,102,255)
-			$envCon/envAnimations.play("sunFlow")
 			m += 1
 			followMe()
 
@@ -87,6 +88,7 @@ func rainy():
 		if notes == m:
 			var tween = get_tree().create_tween()
 			tween.tween_property(sky, "modulate", Color8(235,236,217,237), 1)
+			$envCon/envAnimations.queue("rainFlow")
 			blocks[notes - 1].modulate = Color8(110,120,129,255)
 			m += 1
 			followMe()
@@ -99,7 +101,7 @@ func cloudy():
 		if notes == m:
 			var tween = get_tree().create_tween()
 			tween.tween_property(sky, "modulate", Color8(240,246,247,255), 1)
-			$envCon/envAnimations.play("cloudFlow")
+			$envCon/envAnimations.queue("cloudFlow")
 			blocks[notes - 1].modulate = Color8(164,217,231,255)
 			m += 1
 			followMe()

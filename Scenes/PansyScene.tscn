@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://dc3st7f6hmcs0"]
+[gd_scene load_steps=57 format=3 uid="uid://dc3st7f6hmcs0"]
 
 [ext_resource type="Script" path="res://Scenes/PansyScene.gd" id="1_0x3he"]
 [ext_resource type="Texture2D" uid="uid://b0phqpmyiscrm" path="res://sprites/ranButtonDark.png" id="2_5pnjf"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b3nypib2lfue5" path="res://sprites/weather/cloudSprites.png" id="9_ngilp"]
 [ext_resource type="AudioStream" uid="uid://cb67f0rhn4mhl" path="res://sounds/Untitled(2).mp3" id="9_p012m"]
 [ext_resource type="Texture2D" uid="uid://dmdt7e7rroahh" path="res://sprites/sunButtonDark.png" id="10_cn64y"]
+[ext_resource type="Texture2D" uid="uid://bxh71bfwewqkx" path="res://sprites/weather/dropSprites.png" id="10_owdob"]
 [ext_resource type="Texture2D" uid="uid://bk22xnqi7fy1f" path="res://sprites/weather/rain02.png" id="10_thp2u"]
 [ext_resource type="Texture2D" uid="uid://bebopxavibfws" path="res://sprites/sunButton.png" id="11_cvdac"]
 [ext_resource type="Script" path="res://Scenes/sun.gd" id="12_up5o2"]
@@ -23,6 +24,42 @@
 
 [sub_resource type="Animation" id="Animation_np7y2"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("rainn/rainCloud:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_thp2u")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("rainn/rainDrops:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("rainn:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(584, -3)]
+}
 
 [sub_resource type="Animation" id="Animation_olpif"]
 resource_name = "cloudFlow"
@@ -51,6 +88,47 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(662, 180), Vector2(-236, 160)]
+}
+
+[sub_resource type="Animation" id="Animation_bwhp0"]
+resource_name = "rainFlow"
+length = 3.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("rainn/rainCloud:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_thp2u")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("rainn/rainDrops:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("rainn:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(584, -3), Vector2(-610, 16)]
 }
 
 [sub_resource type="Animation" id="Animation_3i6bc"]
@@ -152,11 +230,6 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector2(513, 71), Vector2(352, -27), Vector2(-330, 15)]
 }
-
-[sub_resource type="Animation" id="Animation_bwhp0"]
-resource_name = "rainFlow"
-loop_mode = 1
-step = 0.01
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8ciii"]
 _data = {
@@ -553,11 +626,17 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_6f3tu")
 
 [node name="rainn" type="Node2D" parent="envCon"]
+position = Vector2(584, -3)
+
+[node name="rainDrops" type="Sprite2D" parent="envCon/rainn"]
+position = Vector2(216, 225)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_owdob")
+hframes = 3
 
 [node name="rainCloud" type="Sprite2D" parent="envCon/rainn"]
-visible = false
 position = Vector2(219, 14)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_thp2u")
 
 [node name="clouds" type="Sprite2D" parent="envCon"]
