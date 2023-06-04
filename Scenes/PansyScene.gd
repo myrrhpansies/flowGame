@@ -112,6 +112,7 @@ func checkNotes():
 	if testArray.slice(0,notes) != inputArray.slice(0,m):
 		alive = false
 		inputArray = []
+		$deathTImer.start()
 		
 		
 ############### animations #############################		
@@ -172,3 +173,9 @@ func _on_timer_timeout():
 func _on_play_timer_timeout():
 	if alive:
 		playAlong()
+
+
+func _on_death_t_imer_timeout():
+	$pansyDeath.visible = true
+	$pansyDeath/yes.grab_focus()
+	$cloud.visible = false
