@@ -152,10 +152,10 @@ func deathPoints():
 		notes = 0
 	elif !alive and deathpoint == 2 :
 		panPlay.play("growthDeath")	
-		inputArray = []
+		notes = 0
 	elif !alive and deathpoint == 3:
 		panPlay.play("bloomDeath")
-		inputArray = []
+		notes = 0
 	else:
 		pass	
 

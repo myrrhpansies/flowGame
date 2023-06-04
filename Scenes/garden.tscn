@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dsl4sc6ndme77"]
+
+[node name="Garden" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 594.0
+offset_bottom = 432.0

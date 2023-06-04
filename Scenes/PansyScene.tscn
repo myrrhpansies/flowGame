@@ -578,7 +578,7 @@ offset_left = -21.0
 offset_top = -46.0
 offset_right = 1222.0
 offset_bottom = 681.0
-color = Color(0.960784, 0.811765, 0.670588, 1)
+color = Color(0.90601, 0.781016, 0.793021, 1)
 
 [node name="envCon" type="Control" parent="."]
 clip_contents = true
