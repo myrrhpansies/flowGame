@@ -17,4 +17,4 @@ func _on_yes_pressed():
 
 
 func _on_no_pressed():
-	print("pettt")
+	get_tree().change_scene_to_file("res://Scenes/garden.tscn")

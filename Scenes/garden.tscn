@@ -1,7 +1,70 @@
-[gd_scene format=3 uid="uid://dsl4sc6ndme77"]
+[gd_scene load_steps=9 format=3 uid="uid://dsl4sc6ndme77"]
+
+[ext_resource type="Texture2D" uid="uid://xmopdiycgeoh" path="res://sprites/bg01.png" id="1_okuhw"]
+[ext_resource type="Texture2D" uid="uid://6qmi2vxiq73n" path="res://sprites/bg02.png" id="2_xy1nr"]
+[ext_resource type="Texture2D" uid="uid://d3vp5f0ljttxf" path="res://sprites/gb06.png" id="3_dop0i"]
+[ext_resource type="Texture2D" uid="uid://2jcxavlauhsq" path="res://sprites/gb05.png" id="4_uu35k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2uqm1"]
+texture = ExtResource("3_dop0i")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lrds3"]
+texture = ExtResource("4_uu35k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pepv1"]
+texture = ExtResource("3_dop0i")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3f3f8"]
+texture = ExtResource("4_uu35k")
 
 [node name="Garden" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 594.0
-offset_bottom = 432.0
+[node name="bg" type="TextureRect" parent="."]
+offset_right = 678.0
+offset_bottom = 659.0
+scale = Vector2(0.650868, 0.644687)
+texture = ExtResource("1_okuhw")
+
+[node name="bg2" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.651839, 0.645917)
+texture = ExtResource("2_xy1nr")
+stretch_mode = 1
+
+[node name="buttCon" type="HBoxContainer" parent="."]
+layout_direction = 2
+offset_left = 2.0
+offset_top = 570.0
+offset_right = 649.0
+offset_bottom = 645.0
+size_flags_horizontal = 3
+theme_override_constants/separation = -1
+
+[node name="MarginContainer" type="MarginContainer" parent="buttCon"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="pansyButton" type="Button" parent="buttCon"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_2uqm1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lrds3")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_pepv1")
+theme_override_styles/focus = SubResource("StyleBoxTexture_3f3f8")
+
+[node name="sunflowerButton" type="Button" parent="buttCon"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="bellButton" type="Button" parent="buttCon"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="questionButton" type="Button" parent="buttCon"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="buttCon"]
+layout_mode = 2
+size_flags_horizontal = 3
