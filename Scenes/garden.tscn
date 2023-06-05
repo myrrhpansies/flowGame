@@ -1,15 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsl4sc6ndme77"]
+[gd_scene load_steps=39 format=3 uid="uid://dsl4sc6ndme77"]
 
+[ext_resource type="Script" path="res://Scenes/garden.gd" id="1_mprhu"]
 [ext_resource type="Texture2D" uid="uid://xmopdiycgeoh" path="res://sprites/bg01.png" id="1_okuhw"]
 [ext_resource type="Texture2D" uid="uid://6qmi2vxiq73n" path="res://sprites/bg02.png" id="2_xy1nr"]
 [ext_resource type="Texture2D" uid="uid://d3vp5f0ljttxf" path="res://sprites/gb06.png" id="3_dop0i"]
 [ext_resource type="Texture2D" uid="uid://2jcxavlauhsq" path="res://sprites/gb05.png" id="4_uu35k"]
+[ext_resource type="Texture2D" uid="uid://cbhqqsg6tlrsb" path="res://sprites/gb08.png" id="5_274sw"]
+[ext_resource type="Texture2D" uid="uid://coq3p4kshcjh2" path="res://sprites/gb07.png" id="6_j8sqs"]
+[ext_resource type="Texture2D" uid="uid://bjon76i0w2q74" path="res://sprites/gb04.png" id="8_pg86b"]
+[ext_resource type="Texture2D" uid="uid://b2lvd15kuv1gp" path="res://sprites/gb03.png" id="9_eesxu"]
+[ext_resource type="Texture2D" uid="uid://c40aqoqk6plyt" path="res://sprites/gb02.png" id="10_f4x0p"]
+[ext_resource type="Texture2D" uid="uid://frfr56uc36a5" path="res://sprites/gb01.png" id="11_dj6fv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2uqm1"]
 texture = ExtResource("3_dop0i")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lrds3"]
-texture = ExtResource("4_uu35k")
+texture = ExtResource("3_dop0i")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pepv1"]
 texture = ExtResource("3_dop0i")
@@ -24,7 +31,74 @@ keycode = 4194309
 [sub_resource type="Shortcut" id="Shortcut_56uln"]
 events = [SubResource("InputEventKey_bsaa7")]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gwxuw"]
+texture = ExtResource("5_274sw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fitxg"]
+texture = ExtResource("5_274sw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p0njv"]
+texture = ExtResource("5_274sw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mlysr"]
+texture = ExtResource("5_274sw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3kdkv"]
+texture = ExtResource("6_j8sqs")
+
+[sub_resource type="InputEventKey" id="InputEventKey_k1fdv"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_ebed1"]
+events = [SubResource("InputEventKey_k1fdv")]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hq1yh"]
+texture = ExtResource("8_pg86b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yv6rj"]
+texture = ExtResource("9_eesxu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bo8o8"]
+texture = ExtResource("8_pg86b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a8xd1"]
+texture = ExtResource("8_pg86b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rnsuj"]
+texture = ExtResource("9_eesxu")
+
+[sub_resource type="InputEventKey" id="InputEventKey_y32tr"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_fjo41"]
+events = [SubResource("InputEventKey_y32tr")]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6jlbo"]
+texture = ExtResource("10_f4x0p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_12r08"]
+texture = ExtResource("11_dj6fv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u5upd"]
+texture = ExtResource("10_f4x0p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_verfu"]
+texture = ExtResource("10_f4x0p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bcf31"]
+texture = ExtResource("11_dj6fv")
+
+[sub_resource type="InputEventKey" id="InputEventKey_sph5q"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_h51d4"]
+events = [SubResource("InputEventKey_sph5q")]
+
 [node name="Garden" type="Node2D"]
+script = ExtResource("1_mprhu")
 
 [node name="bg" type="TextureRect" parent="."]
 offset_right = 678.0
@@ -46,6 +120,7 @@ offset_top = 570.0
 offset_right = 649.0
 offset_bottom = 648.0
 size_flags_horizontal = 3
+focus_mode = 2
 theme_override_constants/separation = -1
 
 [node name="ColorRect" type="ColorRect" parent="buttCon"]
@@ -53,13 +128,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0.607843, 0.478431, 0.478431, 1)
 
-[node name="pansyButton" type="Button" parent="buttCon"]
+[node name="pansyButton" type="Button" parent="buttCon" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../questionButton")
 focus_neighbor_right = NodePath("../sunflowerButton")
-focus_mode = 0
 mouse_filter = 2
+shortcut_context = NodePath(".")
 theme_override_styles/normal = SubResource("StyleBoxTexture_2uqm1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_lrds3")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_pepv1")
@@ -67,19 +142,56 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_3f3f8")
 button_mask = 0
 shortcut = SubResource("Shortcut_56uln")
 
-[node name="sunflowerButton" type="Button" parent="buttCon"]
+[node name="sunflowerButton" type="Button" parent="buttCon" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../pansyButton")
+focus_neighbor_right = NodePath("../bellButton")
+focus_mode = 1
+mouse_filter = 2
+shortcut_context = NodePath(".")
+theme_override_styles/normal = SubResource("StyleBoxTexture_gwxuw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fitxg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_p0njv")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_mlysr")
+theme_override_styles/focus = SubResource("StyleBoxTexture_3kdkv")
+shortcut = SubResource("Shortcut_ebed1")
 
-[node name="bellButton" type="Button" parent="buttCon"]
+[node name="bellButton" type="Button" parent="buttCon" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../sunflowerButton")
+focus_neighbor_right = NodePath("../questionButton")
+shortcut_context = NodePath(".")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hq1yh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yv6rj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bo8o8")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_a8xd1")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rnsuj")
+button_mask = 0
+shortcut = SubResource("Shortcut_fjo41")
 
-[node name="questionButton" type="Button" parent="buttCon"]
+[node name="questionButton" type="Button" parent="buttCon" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../bellButton")
+focus_neighbor_right = NodePath("../pansyButton")
+mouse_filter = 2
+shortcut_context = NodePath(".")
+theme_override_styles/normal = SubResource("StyleBoxTexture_6jlbo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_12r08")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_u5upd")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_verfu")
+theme_override_styles/focus = SubResource("StyleBoxTexture_bcf31")
+button_mask = 0
+shortcut = SubResource("Shortcut_h51d4")
 
 [node name="ColorRect2" type="ColorRect" parent="buttCon"]
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0.607843, 0.478431, 0.478431, 1)
+
+[connection signal="pressed" from="buttCon/pansyButton" to="." method="_on_pansy_button_pressed"]
+[connection signal="pressed" from="buttCon/sunflowerButton" to="." method="_on_sunflower_button_pressed"]
+[connection signal="pressed" from="buttCon/bellButton" to="." method="_on_bell_button_pressed"]
+[connection signal="pressed" from="buttCon/questionButton" to="." method="_on_question_button_pressed"]
