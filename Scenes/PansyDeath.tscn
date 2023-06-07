@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxodll086p2ml"]
+[gd_scene load_steps=20 format=3 uid="uid://cxodll086p2ml"]
 
 [ext_resource type="Script" path="res://Scenes/pansyDeath.gd" id="1_44i1e"]
 [ext_resource type="Texture2D" uid="uid://bam8nrf0woedw" path="res://sprites/death01.png" id="2_wlgpy"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dfsdsjohfvcah" path="res://sprites/yesFoc.png" id="5_q8w0t"]
 [ext_resource type="Texture2D" uid="uid://bdp6s0pvqsdyj" path="res://sprites/noNorm.png" id="6_g11wt"]
 [ext_resource type="Texture2D" uid="uid://bvbn8j3tfdh3i" path="res://sprites/noFoc.png" id="7_o2vqe"]
+[ext_resource type="AudioStream" uid="uid://b3giehhsvuu26" path="res://sounds/focus.mp3" id="8_g63om"]
+[ext_resource type="AudioStream" uid="uid://b6r5apyg66e6i" path="res://sounds/pressed.mp3" id="9_82rgp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3x4ea"]
 texture = ExtResource("4_0lo6i")
@@ -86,5 +88,13 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_eflps")
 button_mask = 0
 shortcut = SubResource("Shortcut_8p4kf")
 
+[node name="focusSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_g63om")
+
+[node name="pressedSond" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_82rgp")
+
+[connection signal="focus_entered" from="yes" to="." method="_on_yes_focus_entered"]
 [connection signal="pressed" from="yes" to="." method="_on_yes_pressed"]
+[connection signal="focus_entered" from="no" to="." method="_on_no_focus_entered"]
 [connection signal="pressed" from="no" to="." method="_on_no_pressed"]

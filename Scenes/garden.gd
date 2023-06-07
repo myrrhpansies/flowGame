@@ -5,6 +5,9 @@ extends Node2D
 func _ready():
 	$buttCon/pansyButton.grab_focus()
 
+func playSounds():
+	if Input.is_action_just_pressed("leftArrow") or Input.is_action_just_pressed("rightArrow"):
+		$focusSound.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -12,16 +15,6 @@ func _process(delta):
 
 
 func _on_pansy_button_pressed():
+	$pressedSound.play()
 	get_tree().change_scene_to_file("res://Scenes/PansyScene.tscn")
 
-
-func _on_sunflower_button_pressed():
-	print("sunflowerPress")
-
-
-func _on_bell_button_pressed():
-	print("bellflowerPress")
-
-
-func _on_question_button_pressed():
-	print("questionPress")

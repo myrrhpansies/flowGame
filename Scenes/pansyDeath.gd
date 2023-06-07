@@ -12,9 +12,20 @@ func _process(_delta):
 
 
 func _on_yes_pressed():
+	$pressedSond.play()
 	get_tree().change_scene_to_file("res://Scenes/PansyScene.tscn")
+	
 
 
 
 func _on_no_pressed():
+	$pressedSond.play()
 	get_tree().change_scene_to_file("res://Scenes/garden.tscn")
+
+
+func _on_yes_focus_entered():
+	$focusSound.play()
+
+
+func _on_no_focus_entered():
+	$focusSound.play()

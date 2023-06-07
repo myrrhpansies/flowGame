@@ -1,26 +1,26 @@
-[gd_scene load_steps=58 format=3 uid="uid://dc3st7f6hmcs0"]
+[gd_scene load_steps=64 format=3 uid="uid://dc3st7f6hmcs0"]
 
 [ext_resource type="Script" path="res://Scenes/PansyScene.gd" id="1_0x3he"]
 [ext_resource type="Texture2D" uid="uid://b0phqpmyiscrm" path="res://sprites/ranButtonDark.png" id="2_5pnjf"]
+[ext_resource type="AudioStream" uid="uid://cu1chrn6ckbco" path="res://sounds/panSun.mp3" id="2_uwcs5"]
 [ext_resource type="Texture2D" uid="uid://bmu1mue42kag3" path="res://sprites/ranButton.png" id="3_1c48h"]
+[ext_resource type="AudioStream" uid="uid://dlyw80r7vbddn" path="res://sounds/panRain.mp3" id="3_ck5jw"]
 [ext_resource type="Script" path="res://Scenes/rain.gd" id="4_wtmck"]
+[ext_resource type="AudioStream" uid="uid://jleapuwequ0l" path="res://sounds/panCloud.mp3" id="4_yu0r1"]
 [ext_resource type="Texture2D" uid="uid://dvx5qpqkevae7" path="res://sprites/weather/sun01.png" id="5_6f3tu"]
 [ext_resource type="Texture2D" uid="uid://4kyplgn0lwsr" path="res://sprites/weather/sun04.png" id="5_7770q"]
-[ext_resource type="AudioStream" uid="uid://d2bwiagojloml" path="res://sounds/Untitled(3).mp3" id="5_hl120"]
 [ext_resource type="Texture2D" uid="uid://64gj3xo8djti" path="res://sprites/weather/sun03.png" id="6_4cryh"]
 [ext_resource type="Texture2D" uid="uid://d4etyl3lvppxf" path="res://sprites/cloudButtonDark.png" id="6_7g4nc"]
 [ext_resource type="Texture2D" uid="uid://brugfs8mqkjo1" path="res://sprites/weather/sun02.png" id="7_hmki1"]
 [ext_resource type="Texture2D" uid="uid://c5d85m7f7jqlp" path="res://sprites/cloudButton.png" id="7_r5skd"]
 [ext_resource type="Script" path="res://Scenes/cloud.gd" id="8_x4ve4"]
 [ext_resource type="Texture2D" uid="uid://b3nypib2lfue5" path="res://sprites/weather/cloudSprites.png" id="9_ngilp"]
-[ext_resource type="AudioStream" uid="uid://cb67f0rhn4mhl" path="res://sounds/Untitled(2).mp3" id="9_p012m"]
 [ext_resource type="Texture2D" uid="uid://dmdt7e7rroahh" path="res://sprites/sunButtonDark.png" id="10_cn64y"]
 [ext_resource type="Texture2D" uid="uid://bxh71bfwewqkx" path="res://sprites/weather/dropSprites.png" id="10_owdob"]
 [ext_resource type="Texture2D" uid="uid://bk22xnqi7fy1f" path="res://sprites/weather/rain02.png" id="10_thp2u"]
 [ext_resource type="Texture2D" uid="uid://bebopxavibfws" path="res://sprites/sunButton.png" id="11_cvdac"]
 [ext_resource type="Script" path="res://Scenes/sun.gd" id="12_up5o2"]
-[ext_resource type="AudioStream" uid="uid://cyt56w76ahmnf" path="res://sounds/Untitled(1).mp3" id="13_y0gpx"]
-[ext_resource type="Texture2D" uid="uid://csssrvb5edngs" path="res://sprites/PansySheet.png" id="14_41wet"]
+[ext_resource type="Texture2D" uid="uid://bcfptaabfsp67" path="res://sprites/pansySheet2.png" id="21_iwbmt"]
 [ext_resource type="PackedScene" uid="uid://cxodll086p2ml" path="res://Scenes/PansyDeath.tscn" id="22_mnsjx"]
 
 [sub_resource type="Animation" id="Animation_np7y2"]
@@ -246,6 +246,9 @@ texture = ExtResource("2_5pnjf")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ro0w5"]
 texture = ExtResource("3_1c48h")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_64t77"]
+texture = ExtResource("2_5pnjf")
+
 [sub_resource type="InputEventKey" id="InputEventKey_1jwdx"]
 device = -1
 keycode = 4194321
@@ -264,6 +267,9 @@ texture = ExtResource("6_7g4nc")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h8wjf"]
 texture = ExtResource("7_r5skd")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ooi7x"]
+texture = ExtResource("6_7g4nc")
+
 [sub_resource type="InputEventKey" id="InputEventKey_l1awp"]
 device = -1
 keycode = 4194322
@@ -281,6 +287,9 @@ texture = ExtResource("10_cn64y")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ciulo"]
 texture = ExtResource("11_cvdac")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t0tlj"]
+texture = ExtResource("10_cn64y")
 
 [sub_resource type="InputEventKey" id="InputEventKey_5jas3"]
 device = -1
@@ -486,6 +495,60 @@ tracks/0/keys = {
 "values": [6, 7, 8]
 }
 
+[sub_resource type="Animation" id="Animation_0o3ya"]
+resource_name = "singLeft"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [25, 26]
+}
+
+[sub_resource type="Animation" id="Animation_3sgag"]
+resource_name = "singRight"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [27, 28]
+}
+
+[sub_resource type="Animation" id="Animation_70op2"]
+resource_name = "singUp"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [29, 30]
+}
+
 [sub_resource type="Animation" id="Animation_11dr8"]
 resource_name = "sproutDeath"
 length = 0.5
@@ -552,6 +615,9 @@ _data = {
 "shootDeath": SubResource("Animation_66kk3"),
 "shootRest": SubResource("Animation_43ox5"),
 "shootWin": SubResource("Animation_435kr"),
+"singLeft": SubResource("Animation_0o3ya"),
+"singRight": SubResource("Animation_3sgag"),
+"singUp": SubResource("Animation_70op2"),
 "sproutDeath": SubResource("Animation_11dr8"),
 "sproutRest": SubResource("Animation_eo5qn"),
 "sproutWin": SubResource("Animation_71ssw")
@@ -563,15 +629,15 @@ script = ExtResource("1_0x3he")
 
 [node name="sunBeep2" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(2, 39)
-stream = ExtResource("13_y0gpx")
+stream = ExtResource("2_uwcs5")
 
 [node name="rainBeep2" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(565, 455)
-stream = ExtResource("5_hl120")
+stream = ExtResource("3_ck5jw")
 
 [node name="cloudBeep2" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(486, 542)
-stream = ExtResource("9_p012m")
+stream = ExtResource("4_yu0r1")
 
 [node name="fullBack" type="ColorRect" parent="."]
 offset_left = -21.0
@@ -654,12 +720,13 @@ offset_bottom = 556.0
 mouse_filter = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_ygmux")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ro0w5")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_64t77")
 button_mask = 0
 shortcut = SubResource("Shortcut_1s232")
 script = ExtResource("4_wtmck")
 
 [node name="rainBeep" type="AudioStreamPlayer2D" parent="rain"]
-stream = ExtResource("5_hl120")
+stream = ExtResource("3_ck5jw")
 
 [node name="cloud" type="Button" parent="."]
 offset_left = 486.0
@@ -669,12 +736,13 @@ offset_bottom = 642.0
 mouse_filter = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_8pqfm")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_h8wjf")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ooi7x")
 button_mask = 0
 shortcut = SubResource("Shortcut_rjgs0")
 script = ExtResource("8_x4ve4")
 
 [node name="cloudBeep" type="AudioStreamPlayer2D" parent="cloud"]
-stream = ExtResource("9_p012m")
+stream = ExtResource("4_yu0r1")
 
 [node name="sun" type="Button" parent="."]
 offset_left = 410.0
@@ -684,6 +752,7 @@ offset_bottom = 554.0
 mouse_filter = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_7m7n1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ciulo")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_t0tlj")
 button_mask = 0
 shortcut = SubResource("Shortcut_xaprs")
 expand_icon = true
@@ -691,13 +760,13 @@ script = ExtResource("12_up5o2")
 
 [node name="sunBeep" type="AudioStreamPlayer2D" parent="sun"]
 position = Vector2(-408, -417)
-stream = ExtResource("13_y0gpx")
+stream = ExtResource("2_uwcs5")
 
 [node name="Pansy" type="Sprite2D" parent="."]
 position = Vector2(558, 245)
 scale = Vector2(0.727631, 0.727631)
-texture = ExtResource("14_41wet")
-hframes = 25
+texture = ExtResource("21_iwbmt")
+hframes = 31
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pansy"]
 autoplay = "sproutRest"
@@ -818,9 +887,14 @@ offset_bottom = 351.0
 [node name="deathTImer" type="Timer" parent="."]
 one_shot = true
 
+[node name="winTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="pressed" from="rain" to="rain" method="_on_pressed"]
 [connection signal="pressed" from="cloud" to="cloud" method="_on_pressed"]
 [connection signal="pressed" from="sun" to="sun" method="_on_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="playTimer" to="." method="_on_play_timer_timeout"]
 [connection signal="timeout" from="deathTImer" to="." method="_on_death_t_imer_timeout"]
+[connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]

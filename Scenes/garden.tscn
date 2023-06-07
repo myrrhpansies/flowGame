@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dsl4sc6ndme77"]
+[gd_scene load_steps=41 format=3 uid="uid://dsl4sc6ndme77"]
 
 [ext_resource type="Script" path="res://Scenes/garden.gd" id="1_mprhu"]
 [ext_resource type="Texture2D" uid="uid://xmopdiycgeoh" path="res://sprites/bg01.png" id="1_okuhw"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://b2lvd15kuv1gp" path="res://sprites/gb03.png" id="9_eesxu"]
 [ext_resource type="Texture2D" uid="uid://c40aqoqk6plyt" path="res://sprites/gb02.png" id="10_f4x0p"]
 [ext_resource type="Texture2D" uid="uid://frfr56uc36a5" path="res://sprites/gb01.png" id="11_dj6fv"]
+[ext_resource type="AudioStream" uid="uid://b3giehhsvuu26" path="res://sounds/focus.mp3" id="12_8qb3x"]
+[ext_resource type="AudioStream" uid="uid://b6r5apyg66e6i" path="res://sounds/pressed.mp3" id="13_jasg0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2uqm1"]
 texture = ExtResource("3_dop0i")
@@ -191,7 +193,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0.607843, 0.478431, 0.478431, 1)
 
+[node name="pressedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_jasg0")
+
+[node name="focusSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_8qb3x")
+
+[connection signal="focus_entered" from="buttCon/pansyButton" to="." method="_on_pansy_button_focus_entered"]
+[connection signal="gui_input" from="buttCon/pansyButton" to="." method="_on_pansy_button_gui_input"]
 [connection signal="pressed" from="buttCon/pansyButton" to="." method="_on_pansy_button_pressed"]
+[connection signal="focus_entered" from="buttCon/sunflowerButton" to="." method="_on_sunflower_button_focus_entered"]
 [connection signal="pressed" from="buttCon/sunflowerButton" to="." method="_on_sunflower_button_pressed"]
 [connection signal="pressed" from="buttCon/bellButton" to="." method="_on_bell_button_pressed"]
 [connection signal="pressed" from="buttCon/questionButton" to="." method="_on_question_button_pressed"]
