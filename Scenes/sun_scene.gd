@@ -3,7 +3,7 @@ var notes = 0
 var testArray = []
 var inputArray = []
 var alive = true
-@onready var panPlay = $Pansy/AnimationPlayer
+@onready var sunPlay = $sunFlower/AnimationPlayer
 @onready var sky = $envCon/envBack
 var checkpoint = 0
 var deathpoint = 0
@@ -11,17 +11,15 @@ var m = 1
 var looping = true
 var weatherGoing = false
 @onready var blocks = [$dayCounter/HBoxContainer/ColorRect1, $dayCounter/HBoxContainer/ColorRect2, $dayCounter/HBoxContainer/ColorRect3, $dayCounter/HBoxContainer/ColorRect4, $dayCounter/HBoxContainer/ColorRect5, $dayCounter/HBoxContainer/ColorRect6, $dayCounter/HBoxContainer/ColorRect7, $dayCounter/HBoxContainer/ColorRect8, $dayCounter/HBoxContainer/ColorRect9, $dayCounter/HBoxContainer/ColorRect10, $dayCounter/HBoxContainer/ColorRect11, $dayCounter/HBoxContainer/ColorRect12,]
-signal addPansies
+
 
 func _ready():
-	global.pansyyy = self
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	$sun.sunPressed.connect(sunny)
 	$rain.rainPressed.connect(rainy)
 	$cloud.cloudPressed.connect(cloudy)
 	generateArray()
-	print(self)
-	print(global.pansyyy)
+
 	
 
 
@@ -87,7 +85,6 @@ func followMe():
 		looping = true
 		inputArray = []
 		notes = 0
-		print("inputArray " + str(inputArray))
 		$Timer.start()
 
 func checkingShit():
@@ -147,41 +144,41 @@ func noteCheckpoints():
 	if alive and notes == 3 and checkpoint == 0:
 		checkpoint += 1
 		deathpoint += 1
-		panPlay.play("sproutWin")
-		await panPlay.animation_finished
-		panPlay.play("shootRest")
+		sunPlay.play("sprout")
+		await sunPlay.animation_finished
+		sunPlay.play("shootRest")
 	elif alive and notes == 6 and checkpoint == 1:
 		checkpoint += 1
 		deathpoint += 1
-		panPlay.play("shootWin")
-		await panPlay.animation_finished
-		panPlay.play("growRest")
+		sunPlay.play("shoot")
+		await sunPlay.animation_finished
+		sunPlay.play("growRest")
 	elif alive and notes == 9 and checkpoint == 2:
 		checkpoint += 1
 		deathpoint += 1
-		panPlay.play("growWin")
-		await panPlay.animation_finished
-		panPlay.play("BloomRest")	
+		sunPlay.play("grow")
+		await sunPlay.animation_finished
+		sunPlay.play("bloomRest")	
 	elif alive and notes == 12 and checkpoint == 3:
 		checkpoint += 1
 		deathpoint += 1
-		panPlay.play("BloomWin")
-		await panPlay.animation_finished
-		panPlay.play("fullGrown")
+		sunPlay.play("bloom")
+		await sunPlay.animation_finished
+		sunPlay.play("winRest")
 		$winTimer.start()
 		
 func deathPoints():
 	if !alive and deathpoint == 0:
-		panPlay.play("sproutDeath")
+		sunPlay.play("sproutDeath")
 		notes = 0
 	if !alive and deathpoint == 1:
-		panPlay.play("shootDeath")
+		sunPlay.play("shootDeath")
 		notes = 0
 	elif !alive and deathpoint == 2 :
-		panPlay.play("growthDeath")	
+		sunPlay.play("growDeath")	
 		notes = 0
 	elif !alive and deathpoint == 3:
-		panPlay.play("bloomDeath")
+		sunPlay.play("bloomDeath")
 		notes = 0
 	else:
 		pass	
@@ -204,9 +201,9 @@ func _on_play_timer_timeout():
 
 
 func _on_death_t_imer_timeout():
-	$pansyDeath.visible = true
-	$pansyDeath/yes.grab_focus()
 	$cloud.visible = false
+	$sunDeath.visible = true
+	$sunDeath/yes.grab_focus()
 
 
 func _on_win_timer_timeout():
@@ -217,24 +214,24 @@ func _on_win_timer_timeout():
 		if i == 1:
 			print(i)
 			countTheDays += 1
-			$Pansy/AnimationPlayer.play("singLeft")
+			sunPlay.play("singLeft")
 			$sunBeep2.play()
 			await $sunBeep2.finished
-			$Pansy/AnimationPlayer.stop()
+			sunPlay.stop()
 		if i == 2:
 			print(i)
 			countTheDays += 1
-			$Pansy/AnimationPlayer.play("singRight")
+			sunPlay.play("singRight")
 			$rainBeep2.play()
 			await $rainBeep2.finished
-			$Pansy/AnimationPlayer.stop()
+			sunPlay.stop()
 		if i == 3:
 			print(i)
 			countTheDays += 1
-			$Pansy/AnimationPlayer.play("singUp")
+			sunPlay.play("singUp")
 			$cloudBeep2.play()
 			await $cloudBeep2.finished
-			$Pansy/AnimationPlayer.stop()
+			sunPlay.stop()
 			
 func _on_follow_timer_timeout():
 	followMe()

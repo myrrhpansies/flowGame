@@ -1,27 +1,27 @@
-[gd_scene load_steps=64 format=3 uid="uid://dc3st7f6hmcs0"]
+[gd_scene load_steps=65 format=3 uid="uid://b3vlp148xt3yh"]
 
-[ext_resource type="Script" path="res://Scenes/PansyScene.gd" id="1_0x3he"]
-[ext_resource type="Texture2D" uid="uid://b0phqpmyiscrm" path="res://sprites/ranButtonDark.png" id="2_5pnjf"]
-[ext_resource type="AudioStream" uid="uid://cu1chrn6ckbco" path="res://sounds/panSun.mp3" id="2_uwcs5"]
-[ext_resource type="Texture2D" uid="uid://bmu1mue42kag3" path="res://sprites/ranButton.png" id="3_1c48h"]
-[ext_resource type="AudioStream" uid="uid://dlyw80r7vbddn" path="res://sounds/panRain.mp3" id="3_ck5jw"]
-[ext_resource type="Script" path="res://Scenes/rain.gd" id="4_wtmck"]
-[ext_resource type="AudioStream" uid="uid://jleapuwequ0l" path="res://sounds/panCloud.mp3" id="4_yu0r1"]
-[ext_resource type="Texture2D" uid="uid://dvx5qpqkevae7" path="res://sprites/weather/sun01.png" id="5_6f3tu"]
-[ext_resource type="Texture2D" uid="uid://4kyplgn0lwsr" path="res://sprites/weather/sun04.png" id="5_7770q"]
-[ext_resource type="Texture2D" uid="uid://64gj3xo8djti" path="res://sprites/weather/sun03.png" id="6_4cryh"]
-[ext_resource type="Texture2D" uid="uid://d4etyl3lvppxf" path="res://sprites/cloudButtonDark.png" id="6_7g4nc"]
-[ext_resource type="Texture2D" uid="uid://brugfs8mqkjo1" path="res://sprites/weather/sun02.png" id="7_hmki1"]
-[ext_resource type="Texture2D" uid="uid://c5d85m7f7jqlp" path="res://sprites/cloudButton.png" id="7_r5skd"]
-[ext_resource type="Script" path="res://Scenes/cloud.gd" id="8_x4ve4"]
-[ext_resource type="Texture2D" uid="uid://b3nypib2lfue5" path="res://sprites/weather/cloudSprites.png" id="9_ngilp"]
-[ext_resource type="Texture2D" uid="uid://dmdt7e7rroahh" path="res://sprites/sunButtonDark.png" id="10_cn64y"]
-[ext_resource type="Texture2D" uid="uid://bxh71bfwewqkx" path="res://sprites/weather/dropSprites.png" id="10_owdob"]
-[ext_resource type="Texture2D" uid="uid://bk22xnqi7fy1f" path="res://sprites/weather/rain02.png" id="10_thp2u"]
-[ext_resource type="Texture2D" uid="uid://bebopxavibfws" path="res://sprites/sunButton.png" id="11_cvdac"]
-[ext_resource type="Script" path="res://Scenes/sun.gd" id="12_up5o2"]
-[ext_resource type="Texture2D" uid="uid://bcfptaabfsp67" path="res://sprites/pansySheet2.png" id="21_iwbmt"]
-[ext_resource type="PackedScene" uid="uid://cxodll086p2ml" path="res://Scenes/PansyDeath.tscn" id="22_mnsjx"]
+[ext_resource type="Script" path="res://Scenes/sun_scene.gd" id="1_lgmrx"]
+[ext_resource type="AudioStream" uid="uid://bj0p6goplp5ap" path="res://sounds/sunSunnn.mp3" id="2_jslvw"]
+[ext_resource type="AudioStream" uid="uid://d06uc6oe4s35u" path="res://sounds/sunRainnn.mp3" id="3_knili"]
+[ext_resource type="AudioStream" uid="uid://pgvby3q8chyw" path="res://sounds/sunClouddd.mp3" id="4_00y5s"]
+[ext_resource type="Texture2D" uid="uid://bk22xnqi7fy1f" path="res://sprites/weather/rain02.png" id="4_tte03"]
+[ext_resource type="Texture2D" uid="uid://dvx5qpqkevae7" path="res://sprites/weather/sun01.png" id="5_cywrq"]
+[ext_resource type="Texture2D" uid="uid://brugfs8mqkjo1" path="res://sprites/weather/sun02.png" id="6_uom54"]
+[ext_resource type="Texture2D" uid="uid://64gj3xo8djti" path="res://sprites/weather/sun03.png" id="7_8xmdj"]
+[ext_resource type="Texture2D" uid="uid://4kyplgn0lwsr" path="res://sprites/weather/sun04.png" id="8_ec7vm"]
+[ext_resource type="Texture2D" uid="uid://bxh71bfwewqkx" path="res://sprites/weather/dropSprites.png" id="9_sbn8i"]
+[ext_resource type="Texture2D" uid="uid://b3nypib2lfue5" path="res://sprites/weather/cloudSprites.png" id="10_a6grj"]
+[ext_resource type="Texture2D" uid="uid://b0phqpmyiscrm" path="res://sprites/ranButtonDark.png" id="11_pkse1"]
+[ext_resource type="Texture2D" uid="uid://bmu1mue42kag3" path="res://sprites/ranButton.png" id="12_squj5"]
+[ext_resource type="Script" path="res://Scenes/rain.gd" id="13_frdb4"]
+[ext_resource type="Texture2D" uid="uid://d4etyl3lvppxf" path="res://sprites/cloudButtonDark.png" id="14_5mkfo"]
+[ext_resource type="Texture2D" uid="uid://c5d85m7f7jqlp" path="res://sprites/cloudButton.png" id="15_4p7n3"]
+[ext_resource type="Script" path="res://Scenes/cloud.gd" id="16_p72gp"]
+[ext_resource type="Texture2D" uid="uid://dmdt7e7rroahh" path="res://sprites/sunButtonDark.png" id="17_mi8e8"]
+[ext_resource type="Texture2D" uid="uid://bebopxavibfws" path="res://sprites/sunButton.png" id="18_rbkb2"]
+[ext_resource type="Script" path="res://Scenes/sun.gd" id="19_pqfx4"]
+[ext_resource type="Texture2D" uid="uid://h3t8f7ycpmav" path="res://sprites/sunSheet.png" id="20_l1wq3"]
+[ext_resource type="PackedScene" uid="uid://cxodll086p2ml" path="res://Scenes/PansyDeath.tscn" id="21_hg2ap"]
 
 [sub_resource type="Animation" id="Animation_np7y2"]
 length = 0.001
@@ -35,7 +35,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("10_thp2u")]
+"values": [ExtResource("4_tte03")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -105,7 +105,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("10_thp2u")]
+"values": [ExtResource("4_tte03")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -145,7 +145,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_6f3tu")]
+"values": [ExtResource("5_cywrq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -157,7 +157,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_hmki1")]
+"values": [ExtResource("6_uom54")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -181,7 +181,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("6_4cryh")]
+"values": [ExtResource("7_8xmdj")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -205,7 +205,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_7770q")]
+"values": [ExtResource("8_ec7vm")]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -240,14 +240,14 @@ _data = {
 "sunFlow": SubResource("Animation_3i6bc")
 }
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ygmux"]
-texture = ExtResource("2_5pnjf")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v4v8l"]
+texture = ExtResource("11_pkse1")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ro0w5"]
-texture = ExtResource("3_1c48h")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g8g6d"]
+texture = ExtResource("12_squj5")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_64t77"]
-texture = ExtResource("2_5pnjf")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eijcb"]
+texture = ExtResource("11_pkse1")
 
 [sub_resource type="InputEventKey" id="InputEventKey_1jwdx"]
 device = -1
@@ -258,17 +258,17 @@ device = -1
 keycode = 68
 unicode = 100
 
-[sub_resource type="Shortcut" id="Shortcut_1s232"]
+[sub_resource type="Shortcut" id="Shortcut_gyrya"]
 events = [SubResource("InputEventKey_1jwdx"), SubResource("InputEventKey_jnn7x")]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8pqfm"]
-texture = ExtResource("6_7g4nc")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pc5o2"]
+texture = ExtResource("14_5mkfo")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h8wjf"]
-texture = ExtResource("7_r5skd")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fiiox"]
+texture = ExtResource("15_4p7n3")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ooi7x"]
-texture = ExtResource("6_7g4nc")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_24o1r"]
+texture = ExtResource("14_5mkfo")
 
 [sub_resource type="InputEventKey" id="InputEventKey_l1awp"]
 device = -1
@@ -279,17 +279,17 @@ device = -1
 keycode = 83
 unicode = 115
 
-[sub_resource type="Shortcut" id="Shortcut_rjgs0"]
+[sub_resource type="Shortcut" id="Shortcut_1h6i7"]
 events = [SubResource("InputEventKey_l1awp"), SubResource("InputEventKey_ua8p6")]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7m7n1"]
-texture = ExtResource("10_cn64y")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_daqh2"]
+texture = ExtResource("17_mi8e8")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ciulo"]
-texture = ExtResource("11_cvdac")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vgetu"]
+texture = ExtResource("18_rbkb2")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t0tlj"]
-texture = ExtResource("10_cn64y")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0xew7"]
+texture = ExtResource("17_mi8e8")
 
 [sub_resource type="InputEventKey" id="InputEventKey_5jas3"]
 device = -1
@@ -300,12 +300,91 @@ device = -1
 keycode = 65
 unicode = 97
 
-[sub_resource type="Shortcut" id="Shortcut_xaprs"]
+[sub_resource type="Shortcut" id="Shortcut_a811g"]
 events = [SubResource("InputEventKey_5jas3"), SubResource("InputEventKey_s4xpl")]
 
-[sub_resource type="Animation" id="Animation_uw2jj"]
-resource_name = "BloomRest"
-length = 0.55
+[sub_resource type="Animation" id="Animation_7s7wa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(29, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pytem"]
+resource_name = "bloom"
+length = 0.75
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [19, 20, 21]
+}
+
+[sub_resource type="Animation" id="Animation_rwvk7"]
+resource_name = "bloomRest"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [18, 19]
+}
+
+[sub_resource type="Animation" id="Animation_veptw"]
+resource_name = "grow"
+length = 0.75
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_hwe8c"]
+resource_name = "growRest"
+length = 0.5
 loop_mode = 1
 step = 0.25
 tracks/0/type = "value"
@@ -321,8 +400,8 @@ tracks/0/keys = {
 "values": [12, 13]
 }
 
-[sub_resource type="Animation" id="Animation_t80ls"]
-resource_name = "BloomWin"
+[sub_resource type="Animation" id="Animation_h1fdd"]
+resource_name = "shoot"
 length = 0.75
 step = 0.25
 tracks/0/type = "value"
@@ -335,114 +414,10 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [14, 15, 16]
+"values": [5, 6, 7]
 }
 
-[sub_resource type="Animation" id="Animation_7i4em"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_1r718"]
-resource_name = "bloomDeath"
-length = 0.5
-loop_mode = 1
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [17, 18]
-}
-
-[sub_resource type="Animation" id="Animation_uvohj"]
-resource_name = "fullGrown"
-length = 0.5
-loop_mode = 1
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [15, 16]
-}
-
-[sub_resource type="Animation" id="Animation_0n463"]
-resource_name = "growRest"
-length = 0.5
-loop_mode = 1
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [8, 9]
-}
-
-[sub_resource type="Animation" id="Animation_edwde"]
-resource_name = "growWin"
-length = 0.75
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [10, 11, 12]
-}
-
-[sub_resource type="Animation" id="Animation_2vd78"]
-resource_name = "growthDeath"
-length = 0.5
-loop_mode = 1
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [19, 20]
-}
-
-[sub_resource type="Animation" id="Animation_66kk3"]
+[sub_resource type="Animation" id="Animation_libas"]
 resource_name = "shootDeath"
 length = 0.5
 loop_mode = 1
@@ -457,10 +432,28 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [21, 22]
+"values": [10, 11]
 }
 
-[sub_resource type="Animation" id="Animation_43ox5"]
+[sub_resource type="Animation" id="Animation_q4t6a"]
+resource_name = "shootGrowth"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [16, 17]
+}
+
+[sub_resource type="Animation" id="Animation_ilwki"]
 resource_name = "shootRest"
 length = 0.5
 loop_mode = 1
@@ -478,24 +471,7 @@ tracks/0/keys = {
 "values": [4, 5]
 }
 
-[sub_resource type="Animation" id="Animation_435kr"]
-resource_name = "shootWin"
-length = 0.75
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [6, 7, 8]
-}
-
-[sub_resource type="Animation" id="Animation_0o3ya"]
+[sub_resource type="Animation" id="Animation_c8bhp"]
 resource_name = "singLeft"
 length = 0.5
 loop_mode = 1
@@ -513,10 +489,9 @@ tracks/0/keys = {
 "values": [25, 26]
 }
 
-[sub_resource type="Animation" id="Animation_3sgag"]
+[sub_resource type="Animation" id="Animation_sx6qr"]
 resource_name = "singRight"
 length = 0.5
-loop_mode = 1
 step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -531,28 +506,9 @@ tracks/0/keys = {
 "values": [27, 28]
 }
 
-[sub_resource type="Animation" id="Animation_70op2"]
+[sub_resource type="Animation" id="Animation_w5jtw"]
 resource_name = "singUp"
 length = 0.5
-loop_mode = 1
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [29, 30]
-}
-
-[sub_resource type="Animation" id="Animation_11dr8"]
-resource_name = "sproutDeath"
-length = 0.5
-loop_mode = 1
 step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -567,7 +523,42 @@ tracks/0/keys = {
 "values": [23, 24]
 }
 
-[sub_resource type="Animation" id="Animation_eo5qn"]
+[sub_resource type="Animation" id="Animation_oxggm"]
+resource_name = "sprout"
+length = 0.75
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_2ns5p"]
+resource_name = "sproutDeath"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_j8k45"]
 resource_name = "sproutRest"
 length = 0.5
 loop_mode = 1
@@ -585,9 +576,10 @@ tracks/0/keys = {
 "values": [0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_71ssw"]
-resource_name = "sproutWin"
-length = 0.75
+[sub_resource type="Animation" id="Animation_qp0ou"]
+resource_name = "winRest"
+length = 0.5
+loop_mode = 1
 step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -596,64 +588,99 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [2, 3, 4]
+"values": [21, 22]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_l6uec"]
+[sub_resource type="Animation" id="Animation_e2fmy"]
+resource_name = "growDeath"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [16, 17]
+}
+
+[sub_resource type="Animation" id="Animation_r80sd"]
+resource_name = "bloomDeath"
+length = 0.5
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(29, 0), Vector2i(30, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ku6md"]
 _data = {
-"BloomRest": SubResource("Animation_uw2jj"),
-"BloomWin": SubResource("Animation_t80ls"),
-"RESET": SubResource("Animation_7i4em"),
-"bloomDeath": SubResource("Animation_1r718"),
-"fullGrown": SubResource("Animation_uvohj"),
-"growRest": SubResource("Animation_0n463"),
-"growWin": SubResource("Animation_edwde"),
-"growthDeath": SubResource("Animation_2vd78"),
-"shootDeath": SubResource("Animation_66kk3"),
-"shootRest": SubResource("Animation_43ox5"),
-"shootWin": SubResource("Animation_435kr"),
-"singLeft": SubResource("Animation_0o3ya"),
-"singRight": SubResource("Animation_3sgag"),
-"singUp": SubResource("Animation_70op2"),
-"sproutDeath": SubResource("Animation_11dr8"),
-"sproutRest": SubResource("Animation_eo5qn"),
-"sproutWin": SubResource("Animation_71ssw")
+"RESET": SubResource("Animation_7s7wa"),
+"bloom": SubResource("Animation_pytem"),
+"bloomDeath": SubResource("Animation_r80sd"),
+"bloomRest": SubResource("Animation_rwvk7"),
+"grow": SubResource("Animation_veptw"),
+"growDeath": SubResource("Animation_e2fmy"),
+"growRest": SubResource("Animation_hwe8c"),
+"shoot": SubResource("Animation_h1fdd"),
+"shootDeath": SubResource("Animation_libas"),
+"shootGrowth": SubResource("Animation_q4t6a"),
+"shootRest": SubResource("Animation_ilwki"),
+"singLeft": SubResource("Animation_c8bhp"),
+"singRight": SubResource("Animation_sx6qr"),
+"singUp": SubResource("Animation_w5jtw"),
+"sprout": SubResource("Animation_oxggm"),
+"sproutDeath": SubResource("Animation_2ns5p"),
+"sproutRest": SubResource("Animation_j8k45"),
+"winRest": SubResource("Animation_qp0ou")
 }
 
-[node name="pansyScene" type="Node2D"]
-position = Vector2(-260, 5)
-script = ExtResource("1_0x3he")
+[node name="sunScene" type="Node2D"]
+script = ExtResource("1_lgmrx")
 
 [node name="sunBeep2" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(2, 39)
-stream = ExtResource("2_uwcs5")
+position = Vector2(-242, 31)
+stream = ExtResource("2_jslvw")
 
 [node name="rainBeep2" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(565, 455)
-stream = ExtResource("3_ck5jw")
+position = Vector2(321, 447)
+stream = ExtResource("3_knili")
 
 [node name="cloudBeep2" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(486, 542)
-stream = ExtResource("4_yu0r1")
+position = Vector2(242, 534)
+stream = ExtResource("4_00y5s")
 
 [node name="fullBack" type="ColorRect" parent="."]
-offset_left = -21.0
-offset_top = -46.0
-offset_right = 1222.0
-offset_bottom = 681.0
+offset_left = -265.0
+offset_top = -54.0
+offset_right = 978.0
+offset_bottom = 673.0
 color = Color(0.90601, 0.781016, 0.793021, 1)
 
 [node name="envCon" type="Control" parent="."]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = 346.0
-offset_top = 51.0
-offset_right = 782.0
-offset_bottom = 427.0
+offset_left = 102.0
+offset_top = 43.0
+offset_right = 538.0
+offset_bottom = 419.0
 
 [node name="envBack" type="ColorRect" parent="envCon"]
 layout_mode = 0
@@ -675,22 +702,22 @@ position = Vector2(513, 71)
 [node name="sunRay3" type="Sprite2D" parent="envCon/sunss"]
 position = Vector2(209, 131)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("5_7770q")
+texture = ExtResource("8_ec7vm")
 
 [node name="sunRay2" type="Sprite2D" parent="envCon/sunss"]
 position = Vector2(209, 131)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("6_4cryh")
+texture = ExtResource("7_8xmdj")
 
 [node name="sunRay1" type="Sprite2D" parent="envCon/sunss"]
 position = Vector2(209, 131)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("7_hmki1")
+texture = ExtResource("6_uom54")
 
 [node name="sunTop" type="Sprite2D" parent="envCon/sunss"]
 position = Vector2(209, 131)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("5_6f3tu")
+texture = ExtResource("5_cywrq")
 
 [node name="rainn" type="Node2D" parent="envCon"]
 position = Vector2(584, -3)
@@ -698,80 +725,81 @@ position = Vector2(584, -3)
 [node name="rainDrops" type="Sprite2D" parent="envCon/rainn"]
 position = Vector2(216, 225)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("10_owdob")
+texture = ExtResource("9_sbn8i")
 hframes = 3
 
 [node name="rainCloud" type="Sprite2D" parent="envCon/rainn"]
 position = Vector2(219, 14)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("10_thp2u")
+texture = ExtResource("4_tte03")
 
 [node name="clouds" type="Sprite2D" parent="envCon"]
 position = Vector2(662, 180)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_ngilp")
+texture = ExtResource("10_a6grj")
 hframes = 2
 
 [node name="rain" type="Button" parent="."]
-offset_left = 565.0
-offset_top = 455.0
-offset_right = 692.0
-offset_bottom = 556.0
+offset_left = 321.0
+offset_top = 447.0
+offset_right = 448.0
+offset_bottom = 548.0
 mouse_filter = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_ygmux")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_ro0w5")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_64t77")
+theme_override_styles/normal = SubResource("StyleBoxTexture_v4v8l")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_g8g6d")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_eijcb")
 button_mask = 0
-shortcut = SubResource("Shortcut_1s232")
-script = ExtResource("4_wtmck")
+shortcut = SubResource("Shortcut_gyrya")
+script = ExtResource("13_frdb4")
 
 [node name="rainBeep" type="AudioStreamPlayer2D" parent="rain"]
-stream = ExtResource("3_ck5jw")
+stream = ExtResource("3_knili")
 
 [node name="cloud" type="Button" parent="."]
-offset_left = 486.0
-offset_top = 542.0
-offset_right = 608.0
-offset_bottom = 642.0
+offset_left = 242.0
+offset_top = 534.0
+offset_right = 364.0
+offset_bottom = 634.0
 mouse_filter = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_8pqfm")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_h8wjf")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_ooi7x")
+theme_override_styles/normal = SubResource("StyleBoxTexture_pc5o2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fiiox")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_24o1r")
 button_mask = 0
-shortcut = SubResource("Shortcut_rjgs0")
-script = ExtResource("8_x4ve4")
+shortcut = SubResource("Shortcut_1h6i7")
+script = ExtResource("16_p72gp")
 
 [node name="cloudBeep" type="AudioStreamPlayer2D" parent="cloud"]
-stream = ExtResource("4_yu0r1")
+stream = ExtResource("4_00y5s")
 
 [node name="sun" type="Button" parent="."]
-offset_left = 410.0
-offset_top = 456.0
-offset_right = 530.0
-offset_bottom = 554.0
+offset_left = 166.0
+offset_top = 448.0
+offset_right = 286.0
+offset_bottom = 546.0
 mouse_filter = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_7m7n1")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_ciulo")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_t0tlj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_daqh2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vgetu")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_0xew7")
 button_mask = 0
-shortcut = SubResource("Shortcut_xaprs")
+shortcut = SubResource("Shortcut_a811g")
 expand_icon = true
-script = ExtResource("12_up5o2")
+script = ExtResource("19_pqfx4")
 
 [node name="sunBeep" type="AudioStreamPlayer2D" parent="sun"]
 position = Vector2(-408, -417)
-stream = ExtResource("2_uwcs5")
+stream = ExtResource("2_jslvw")
 
-[node name="Pansy" type="Sprite2D" parent="."]
-position = Vector2(558, 245)
-scale = Vector2(0.727631, 0.727631)
-texture = ExtResource("21_iwbmt")
+[node name="sunFlower" type="Sprite2D" parent="."]
+position = Vector2(306, 233)
+scale = Vector2(0.79, 0.79)
+texture = ExtResource("20_l1wq3")
 hframes = 31
+frame = 29
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Pansy"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="sunFlower"]
 autoplay = "sproutRest"
 libraries = {
-"": SubResource("AnimationLibrary_l6uec")
+"": SubResource("AnimationLibrary_ku6md")
 }
 
 [node name="dayCounter" type="Control" parent="."]
@@ -779,9 +807,9 @@ visible = false
 custom_minimum_size = Vector2(450, 0)
 layout_mode = 3
 anchors_preset = 0
-offset_left = 338.0
+offset_left = 96.0
 offset_top = 1.0
-offset_right = 788.0
+offset_right = 546.0
 offset_bottom = 41.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="dayCounter"]
@@ -851,34 +879,32 @@ focus_neighbor_right = NodePath("../ColorRect12")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-autostart = true
-
 [node name="falseSun" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(469.188, 505)
+position = Vector2(225.188, 497)
 scale = Vector2(0.601876, 0.5)
-texture = ExtResource("11_cvdac")
+texture = ExtResource("18_rbkb2")
 
 [node name="falseRain" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(628.5, 505)
+position = Vector2(384.5, 497)
 scale = Vector2(0.635, 0.5)
-texture = ExtResource("3_1c48h")
+texture = ExtResource("12_squj5")
 
 [node name="falseCloud" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(547, 592)
+position = Vector2(303, 584)
 scale = Vector2(0.61, 0.505)
-texture = ExtResource("7_r5skd")
+texture = ExtResource("15_4p7n3")
 
-[node name="pansyDeath" parent="." instance=ExtResource("22_mnsjx")]
+[node name="sunDeath" parent="." instance=ExtResource("21_hg2ap")]
 visible = false
-offset_left = 563.0
 offset_top = 311.0
-offset_right = 603.0
 offset_bottom = 351.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
 
 [node name="deathTImer" type="Timer" parent="."]
 one_shot = true

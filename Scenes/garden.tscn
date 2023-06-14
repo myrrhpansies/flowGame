@@ -199,10 +199,7 @@ stream = ExtResource("13_jasg0")
 [node name="focusSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_8qb3x")
 
-[connection signal="focus_entered" from="buttCon/pansyButton" to="." method="_on_pansy_button_focus_entered"]
-[connection signal="gui_input" from="buttCon/pansyButton" to="." method="_on_pansy_button_gui_input"]
 [connection signal="pressed" from="buttCon/pansyButton" to="." method="_on_pansy_button_pressed"]
-[connection signal="focus_entered" from="buttCon/sunflowerButton" to="." method="_on_sunflower_button_focus_entered"]
 [connection signal="pressed" from="buttCon/sunflowerButton" to="." method="_on_sunflower_button_pressed"]
 [connection signal="pressed" from="buttCon/bellButton" to="." method="_on_bell_button_pressed"]
 [connection signal="pressed" from="buttCon/questionButton" to="." method="_on_question_button_pressed"]

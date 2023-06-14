@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="flowerGamee"
+run/main_scene="res://Scenes/garden.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://global.gd"
+global="*res://global.gd"
 
 [display]
 

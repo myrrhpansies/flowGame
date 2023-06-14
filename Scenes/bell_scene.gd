@@ -3,25 +3,23 @@ var notes = 0
 var testArray = []
 var inputArray = []
 var alive = true
-@onready var panPlay = $Pansy/AnimationPlayer
-@onready var sky = $envCon/envBack
+@onready var bellPlay = $bellFlower/AnimationPlayer
+@onready var blueesky = $envCon/blueSky
+@onready var greyysky = $envCon/greySky
 var checkpoint = 0
 var deathpoint = 0
 var m = 1
 var looping = true
 var weatherGoing = false
 @onready var blocks = [$dayCounter/HBoxContainer/ColorRect1, $dayCounter/HBoxContainer/ColorRect2, $dayCounter/HBoxContainer/ColorRect3, $dayCounter/HBoxContainer/ColorRect4, $dayCounter/HBoxContainer/ColorRect5, $dayCounter/HBoxContainer/ColorRect6, $dayCounter/HBoxContainer/ColorRect7, $dayCounter/HBoxContainer/ColorRect8, $dayCounter/HBoxContainer/ColorRect9, $dayCounter/HBoxContainer/ColorRect10, $dayCounter/HBoxContainer/ColorRect11, $dayCounter/HBoxContainer/ColorRect12,]
-signal addPansies
+
 
 func _ready():
-	global.pansyyy = self
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	$sun.sunPressed.connect(sunny)
 	$rain.rainPressed.connect(rainy)
 	$cloud.cloudPressed.connect(cloudy)
 	generateArray()
-	print(self)
-	print(global.pansyyy)
 	
 
 
@@ -87,7 +85,6 @@ func followMe():
 		looping = true
 		inputArray = []
 		notes = 0
-		print("inputArray " + str(inputArray))
 		$Timer.start()
 
 func checkingShit():
@@ -104,7 +101,7 @@ func sunny():
 		notes += 1
 		if notes == m:
 			var tween = get_tree().create_tween()
-			tween.tween_property(sky, "modulate", Color8(233,238,240,255), 1)
+			tween.tween_property(sky, "modulate", Color(.52,.75,.75,1), 1)
 			$envCon/envAnimations.queue("sunFlow")
 			blocks[notes - 1].modulate = Color8(248,216,102,255)
 			m += 1
@@ -116,7 +113,7 @@ func rainy():
 		notes += 1	
 		if notes == m:
 			var tween = get_tree().create_tween()
-			tween.tween_property(sky, "modulate", Color8(235,236,217,237), 1)
+			tween.tween_property(sky, "modulate", Color8(72,96,97,255), 1)
 			$envCon/envAnimations.queue("rainFlow")
 			blocks[notes - 1].modulate = Color8(110,120,129,255)
 			m += 1
@@ -128,7 +125,7 @@ func cloudy():
 		notes += 1	
 		if notes == m:
 			var tween = get_tree().create_tween()
-			tween.tween_property(sky, "modulate", Color8(240,246,247,255), 1)
+			tween.tween_property(sky, "modulate", Color8(132,190,191,255), 1)
 			$envCon/envAnimations.queue("cloudFlow")
 			blocks[notes - 1].modulate = Color8(164,217,231,255)
 			m += 1
@@ -147,41 +144,41 @@ func noteCheckpoints():
 	if alive and notes == 3 and checkpoint == 0:
 		checkpoint += 1
 		deathpoint += 1
-		panPlay.play("sproutWin")
-		await panPlay.animation_finished
-		panPlay.play("shootRest")
+		bellPlay.play("sprout")
+		await bellPlay.animation_finished
+		bellPlay.play("shootRest")
 	elif alive and notes == 6 and checkpoint == 1:
 		checkpoint += 1
 		deathpoint += 1
-		panPlay.play("shootWin")
-		await panPlay.animation_finished
-		panPlay.play("growRest")
+		bellPlay.play("shoot")
+		await bellPlay.animation_finished
+		bellPlay.play("growRest")
 	elif alive and notes == 9 and checkpoint == 2:
 		checkpoint += 1
 		deathpoint += 1
-		panPlay.play("growWin")
-		await panPlay.animation_finished
-		panPlay.play("BloomRest")	
+		bellPlay.play("grow")
+		await bellPlay.animation_finished
+		bellPlay.play("bloomRest")	
 	elif alive and notes == 12 and checkpoint == 3:
 		checkpoint += 1
 		deathpoint += 1
-		panPlay.play("BloomWin")
-		await panPlay.animation_finished
-		panPlay.play("fullGrown")
+		bellPlay.play("bloom")
+		await bellPlay.animation_finished
+		bellPlay.play("fullGrown")
 		$winTimer.start()
 		
 func deathPoints():
 	if !alive and deathpoint == 0:
-		panPlay.play("sproutDeath")
+		bellPlay.play("sproutDeath")
 		notes = 0
 	if !alive and deathpoint == 1:
-		panPlay.play("shootDeath")
+		bellPlay.play("shootDeath")
 		notes = 0
 	elif !alive and deathpoint == 2 :
-		panPlay.play("growthDeath")	
+		bellPlay.play("growDeath")	
 		notes = 0
 	elif !alive and deathpoint == 3:
-		panPlay.play("bloomDeath")
+		bellPlay.play("bloomDeath")
 		notes = 0
 	else:
 		pass	
@@ -204,37 +201,37 @@ func _on_play_timer_timeout():
 
 
 func _on_death_t_imer_timeout():
-	$pansyDeath.visible = true
-	$pansyDeath/yes.grab_focus()
 	$cloud.visible = false
+	$sunDeath.visible = true
+	$sunDeath/yes.grab_focus()
 
 
 func _on_win_timer_timeout():
 	$dayCounter.visible = true	
 	var countTheDays = 0
 	for i in testArray:
-		blocks[countTheDays].modulate = Color8(255,255,255,255)
+		blocks[countTheDays].modulate = Color8(255,255,255,0)
 		if i == 1:
 			print(i)
 			countTheDays += 1
-			$Pansy/AnimationPlayer.play("singLeft")
+			bellPlay.play("singLeft")
 			$sunBeep2.play()
 			await $sunBeep2.finished
-			$Pansy/AnimationPlayer.stop()
+			bellPlay.stop()
 		if i == 2:
 			print(i)
 			countTheDays += 1
-			$Pansy/AnimationPlayer.play("singRight")
+			bellPlay.play("singRight")
 			$rainBeep2.play()
 			await $rainBeep2.finished
-			$Pansy/AnimationPlayer.stop()
+			bellPlay.stop()
 		if i == 3:
 			print(i)
 			countTheDays += 1
-			$Pansy/AnimationPlayer.play("singUp")
+			bellPlay.play("singUp")
 			$cloudBeep2.play()
 			await $cloudBeep2.finished
-			$Pansy/AnimationPlayer.stop()
+			bellPlay.stop()
 			
 func _on_follow_timer_timeout():
 	followMe()

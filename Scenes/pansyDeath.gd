@@ -13,7 +13,7 @@ func _process(_delta):
 
 func _on_yes_pressed():
 	$pressedSond.play()
-	get_tree().change_scene_to_file("res://Scenes/PansyScene.tscn")
+	get_tree().change_scene_to_file("res://Scenes/sun_scene.tscn")
 	
 
 
