@@ -6,7 +6,6 @@ var gardenPansies = 0
 func _ready():
 	$buttCon/pansyButton.grab_focus()
 
-	print(global.pansyyy)
 
 func playSounds():
 	if Input.is_action_just_pressed("leftArrow") or Input.is_action_just_pressed("rightArrow"):
@@ -23,3 +22,10 @@ func _on_pansy_button_pressed():
 	$pressedSound.play()
 	get_tree().change_scene_to_file("res://Scenes/PansyScene.tscn")
 
+func _on_sunflower_button_pressed():
+	$pressedSound.play()
+	get_tree().change_scene_to_file("res://Scenes/sun_scene.tscn")
+
+func _on_bell_button_pressed():
+	$pressedSound.play()
+	get_tree().change_scene_to_file("res://Scenes/bell_scene.tscn")
