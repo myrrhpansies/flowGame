@@ -739,7 +739,7 @@ _data = {
 }
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_te71q"]
-blend_mode = 2
+blend_mode = 1
 
 [node name="bellScene" type="Node2D"]
 script = ExtResource("1_8dsnn")
@@ -1027,7 +1027,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="paperTexture" type="TextureRect" parent="."]
-modulate = Color(0.180392, 0.329412, 0.419608, 0.27451)
+modulate = Color(0.180392, 0.0980392, 0.160784, 0.54902)
 material = SubResource("CanvasItemMaterial_te71q")
 offset_left = -81.0
 offset_top = -62.0

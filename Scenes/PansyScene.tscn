@@ -738,8 +738,8 @@ _data = {
 "sproutWin": SubResource("Animation_71ssw")
 }
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_funrs"]
-blend_mode = 2
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r5pqe"]
+blend_mode = 1
 
 [node name="pansyScene" type="Node2D"]
 position = Vector2(-260, 5)
@@ -1032,12 +1032,12 @@ offset_right = 604.0
 offset_bottom = 344.0
 
 [node name="paperTexture" type="TextureRect" parent="."]
-modulate = Color(0.72549, 1, 1, 0.0862745)
-material = SubResource("CanvasItemMaterial_funrs")
-offset_left = 88.0
-offset_top = -191.0
-offset_right = 1088.0
-offset_bottom = 809.0
+modulate = Color(0.180392, 0.0980392, 0.160784, 0.54902)
+material = SubResource("CanvasItemMaterial_r5pqe")
+offset_left = 99.0
+offset_top = -98.0
+offset_right = 1099.0
+offset_bottom = 902.0
 texture = ExtResource("23_wimgd")
 
 [connection signal="pressed" from="rain" to="rain" method="_on_pressed"]
