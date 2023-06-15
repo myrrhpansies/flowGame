@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://dc3st7f6hmcs0"]
+[gd_scene load_steps=71 format=3 uid="uid://dc3st7f6hmcs0"]
 
 [ext_resource type="Script" path="res://Scenes/PansyScene.gd" id="1_0x3he"]
 [ext_resource type="Texture2D" uid="uid://b0phqpmyiscrm" path="res://sprites/ranButtonDark.png" id="2_5pnjf"]
@@ -22,6 +22,120 @@
 [ext_resource type="Script" path="res://Scenes/sun.gd" id="12_up5o2"]
 [ext_resource type="Texture2D" uid="uid://bcfptaabfsp67" path="res://sprites/pansySheet2.png" id="21_iwbmt"]
 [ext_resource type="PackedScene" uid="uid://cxodll086p2ml" path="res://Scenes/PansyDeath.tscn" id="22_mnsjx"]
+
+[sub_resource type="Animation" id="Animation_iasac"]
+resource_name = "blueFadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blueSky:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.517647, 0.745098, 0.74902, 0), Color(0.517647, 0.745098, 0.74902, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mx612"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blueSky:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.517647, 0.745098, 0.74902, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("greySky:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.239216, 0.329412, 0.329412, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_f02r0"]
+resource_name = "greyFadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("greySky:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.239216, 0.329412, 0.329412, 0), Color(0.239216, 0.329412, 0.329412, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ewesm"]
+resource_name = "greyFadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("greySky:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.239216, 0.329412, 0.329412, 1), Color(0.239216, 0.329412, 0.329412, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_55ok5"]
+resource_name = "blueStill"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blueSky:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.517647, 0.745098, 0.74902, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mxjmb"]
+resource_name = "greyStill"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("greySky:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.239216, 0.329412, 0.329412, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_10l6c"]
+_data = {
+"RESET": SubResource("Animation_mx612"),
+"blueFadeIn": SubResource("Animation_iasac"),
+"blueStill": SubResource("Animation_55ok5"),
+"greyFadeIn": SubResource("Animation_f02r0"),
+"greyFadeOut": SubResource("Animation_ewesm"),
+"greyStill": SubResource("Animation_mxjmb")
+}
 
 [sub_resource type="Animation" id="Animation_np7y2"]
 length = 0.001
@@ -655,13 +769,35 @@ offset_top = 51.0
 offset_right = 782.0
 offset_bottom = 427.0
 
-[node name="envBack" type="ColorRect" parent="envCon"]
+[node name="skyAnimations" type="AnimationPlayer" parent="envCon"]
+libraries = {
+"": SubResource("AnimationLibrary_10l6c")
+}
+
+[node name="blueSky2" type="ColorRect" parent="envCon"]
+visible = false
 layout_mode = 0
 offset_left = -11.0
 offset_top = -10.0
 offset_right = 445.0
 offset_bottom = 379.0
-color = Color(0.921569, 0.92549, 0.929412, 1)
+color = Color(0.517647, 0.745098, 0.74902, 1)
+
+[node name="blueSky" type="ColorRect" parent="envCon"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = -10.0
+offset_right = 445.0
+offset_bottom = 379.0
+color = Color(0.517647, 0.745098, 0.74902, 0)
+
+[node name="greySky" type="ColorRect" parent="envCon"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = -10.0
+offset_right = 445.0
+offset_bottom = 379.0
+color = Color(0.239216, 0.329412, 0.329412, 0)
 
 [node name="envAnimations" type="AnimationPlayer" parent="envCon"]
 autoplay = "RESET"
@@ -873,13 +1009,6 @@ position = Vector2(547, 592)
 scale = Vector2(0.61, 0.505)
 texture = ExtResource("7_r5skd")
 
-[node name="pansyDeath" parent="." instance=ExtResource("22_mnsjx")]
-visible = false
-offset_left = 563.0
-offset_top = 311.0
-offset_right = 603.0
-offset_bottom = 351.0
-
 [node name="deathTImer" type="Timer" parent="."]
 one_shot = true
 
@@ -890,6 +1019,12 @@ one_shot = true
 [node name="followTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="pansyDeath" parent="." instance=ExtResource("22_mnsjx")]
+offset_left = 564.0
+offset_top = 304.0
+offset_right = 604.0
+offset_bottom = 344.0
 
 [connection signal="pressed" from="rain" to="rain" method="_on_pressed"]
 [connection signal="pressed" from="cloud" to="cloud" method="_on_pressed"]

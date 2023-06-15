@@ -4,11 +4,11 @@ var testArray = []
 var inputArray = []
 var alive = true
 @onready var bellPlay = $bellFlower/AnimationPlayer
-@onready var blueesky = $envCon/blueSky
-@onready var greyysky = $envCon/greySky
+@onready var skyAnimations = $envCon/skyAnimations
 var checkpoint = 0
 var deathpoint = 0
 var m = 1
+var skyNum = 0
 var looping = true
 var weatherGoing = false
 @onready var blocks = [$dayCounter/HBoxContainer/ColorRect1, $dayCounter/HBoxContainer/ColorRect2, $dayCounter/HBoxContainer/ColorRect3, $dayCounter/HBoxContainer/ColorRect4, $dayCounter/HBoxContainer/ColorRect5, $dayCounter/HBoxContainer/ColorRect6, $dayCounter/HBoxContainer/ColorRect7, $dayCounter/HBoxContainer/ColorRect8, $dayCounter/HBoxContainer/ColorRect9, $dayCounter/HBoxContainer/ColorRect10, $dayCounter/HBoxContainer/ColorRect11, $dayCounter/HBoxContainer/ColorRect12,]
@@ -97,37 +97,55 @@ func checkingShit():
 
 func sunny():
 	if alive:
+		print("skyNum" + str(skyNum))
 		inputArray.push_back(1)
 		notes += 1
 		if notes == m:
-			var tween = get_tree().create_tween()
-			tween.tween_property(sky, "modulate", Color(.52,.75,.75,1), 1)
+			if m == 1:
+				skyAnimations.play("blueFadeIn")
+				await skyAnimations.animation_finished
+				$envCon/blueSky2.visible = true
+			if skyNum == 2:
+				$envCon/skyAnimations.play("greyFadeOut")	
 			$envCon/envAnimations.queue("sunFlow")
 			blocks[notes - 1].modulate = Color8(248,216,102,255)
+			skyNum = 1
 			m += 1
 			$followTimer.start()
 
 func rainy():
 	if alive:
+		print("skyNum" + str(skyNum))
 		inputArray.push_back(2)
 		notes += 1	
 		if notes == m:
-			var tween = get_tree().create_tween()
-			tween.tween_property(sky, "modulate", Color8(72,96,97,255), 1)
+			if m == 1:
+				skyAnimations.play("greyFadeIn")
+				await skyAnimations.animation_finished
+				$envCon/blueSky2.visible = true
 			$envCon/envAnimations.queue("rainFlow")
+			if skyNum == 1 or skyNum == 3:
+				$envCon/skyAnimations.play("greyFadeIn")
 			blocks[notes - 1].modulate = Color8(110,120,129,255)
+			skyNum = 2
 			m += 1
 			$followTimer.start()
 
 func cloudy():
 	if alive:
+		print("skyNum" + str(skyNum))
 		inputArray.push_back(3)
 		notes += 1	
 		if notes == m:
-			var tween = get_tree().create_tween()
-			tween.tween_property(sky, "modulate", Color8(132,190,191,255), 1)
+			if m == 1:
+				skyAnimations.play("blueFadeIn")
+				await skyAnimations.animation_finished
+				$envCon/blueSky2.visible = true
 			$envCon/envAnimations.queue("cloudFlow")
+			if skyNum == 2:
+				$envCon/skyAnimations.play("greyFadeOut")
 			blocks[notes - 1].modulate = Color8(164,217,231,255)
+			skyNum = 3
 			m += 1
 			$followTimer.start()
 		
@@ -202,8 +220,8 @@ func _on_play_timer_timeout():
 
 func _on_death_t_imer_timeout():
 	$cloud.visible = false
-	$sunDeath.visible = true
-	$sunDeath/yes.grab_focus()
+	$bellDeath.visible = true
+	$bellDeath/yes.grab_focus()
 
 
 func _on_win_timer_timeout():

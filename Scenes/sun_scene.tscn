@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://b3vlp148xt3yh"]
+[gd_scene load_steps=72 format=3 uid="uid://b3vlp148xt3yh"]
 
 [ext_resource type="Script" path="res://Scenes/sun_scene.gd" id="1_lgmrx"]
 [ext_resource type="AudioStream" uid="uid://bj0p6goplp5ap" path="res://sounds/sunSunnn.mp3" id="2_jslvw"]
@@ -21,7 +21,121 @@
 [ext_resource type="Texture2D" uid="uid://bebopxavibfws" path="res://sprites/sunButton.png" id="18_rbkb2"]
 [ext_resource type="Script" path="res://Scenes/sun.gd" id="19_pqfx4"]
 [ext_resource type="Texture2D" uid="uid://h3t8f7ycpmav" path="res://sprites/sunSheet.png" id="20_l1wq3"]
-[ext_resource type="PackedScene" uid="uid://cxodll086p2ml" path="res://Scenes/PansyDeath.tscn" id="21_hg2ap"]
+[ext_resource type="PackedScene" uid="uid://beq33ljuf66no" path="res://Scenes/sunDeath.tscn" id="22_fvluo"]
+
+[sub_resource type="Animation" id="Animation_iasac"]
+resource_name = "blueFadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blueSky:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.517647, 0.745098, 0.74902, 0), Color(0.517647, 0.745098, 0.74902, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mx612"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blueSky:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.517647, 0.745098, 0.74902, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("greySky:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.239216, 0.329412, 0.329412, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_f02r0"]
+resource_name = "greyFadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("greySky:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.239216, 0.329412, 0.329412, 0), Color(0.239216, 0.329412, 0.329412, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ewesm"]
+resource_name = "greyFadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("greySky:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.239216, 0.329412, 0.329412, 1), Color(0.239216, 0.329412, 0.329412, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_55ok5"]
+resource_name = "blueStill"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blueSky:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.517647, 0.745098, 0.74902, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mxjmb"]
+resource_name = "greyStill"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("greySky:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.239216, 0.329412, 0.329412, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_10l6c"]
+_data = {
+"RESET": SubResource("Animation_mx612"),
+"blueFadeIn": SubResource("Animation_iasac"),
+"blueStill": SubResource("Animation_55ok5"),
+"greyFadeIn": SubResource("Animation_f02r0"),
+"greyFadeOut": SubResource("Animation_ewesm"),
+"greyStill": SubResource("Animation_mxjmb")
+}
 
 [sub_resource type="Animation" id="Animation_np7y2"]
 length = 0.001
@@ -347,6 +461,23 @@ tracks/0/keys = {
 "values": [19, 20, 21]
 }
 
+[sub_resource type="Animation" id="Animation_r80sd"]
+resource_name = "bloomDeath"
+length = 0.5
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(29, 0), Vector2i(30, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_rwvk7"]
 resource_name = "bloomRest"
 length = 0.5
@@ -380,6 +511,24 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_e2fmy"]
+resource_name = "growDeath"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [16, 17]
 }
 
 [sub_resource type="Animation" id="Animation_hwe8c"]
@@ -594,41 +743,6 @@ tracks/0/keys = {
 "values": [21, 22]
 }
 
-[sub_resource type="Animation" id="Animation_e2fmy"]
-resource_name = "growDeath"
-length = 0.5
-loop_mode = 1
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [16, 17]
-}
-
-[sub_resource type="Animation" id="Animation_r80sd"]
-resource_name = "bloomDeath"
-length = 0.5
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2i(29, 0), Vector2i(30, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ku6md"]
 _data = {
 "RESET": SubResource("Animation_7s7wa"),
@@ -682,13 +796,35 @@ offset_top = 43.0
 offset_right = 538.0
 offset_bottom = 419.0
 
-[node name="envBack" type="ColorRect" parent="envCon"]
+[node name="skyAnimations" type="AnimationPlayer" parent="envCon"]
+libraries = {
+"": SubResource("AnimationLibrary_10l6c")
+}
+
+[node name="blueSky2" type="ColorRect" parent="envCon"]
+visible = false
 layout_mode = 0
 offset_left = -11.0
 offset_top = -10.0
 offset_right = 445.0
 offset_bottom = 379.0
-color = Color(0.921569, 0.92549, 0.929412, 1)
+color = Color(0.517647, 0.745098, 0.74902, 1)
+
+[node name="blueSky" type="ColorRect" parent="envCon"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = -10.0
+offset_right = 445.0
+offset_bottom = 379.0
+color = Color(0.517647, 0.745098, 0.74902, 0)
+
+[node name="greySky" type="ColorRect" parent="envCon"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = -10.0
+offset_right = 445.0
+offset_bottom = 379.0
+color = Color(0.239216, 0.329412, 0.329412, 0)
 
 [node name="envAnimations" type="AnimationPlayer" parent="envCon"]
 autoplay = "RESET"
@@ -897,11 +1033,6 @@ position = Vector2(303, 584)
 scale = Vector2(0.61, 0.505)
 texture = ExtResource("15_4p7n3")
 
-[node name="sunDeath" parent="." instance=ExtResource("21_hg2ap")]
-visible = false
-offset_top = 311.0
-offset_bottom = 351.0
-
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
@@ -916,6 +1047,9 @@ one_shot = true
 [node name="followTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="sunDeath" parent="." instance=ExtResource("22_fvluo")]
+visible = false
 
 [connection signal="pressed" from="rain" to="rain" method="_on_pressed"]
 [connection signal="pressed" from="cloud" to="cloud" method="_on_pressed"]
