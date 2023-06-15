@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://8yyiu1kpflf1"]
 
-[ext_resource type="Script" path="res://Scenes/pansyDeath.gd" id="1_xm8n6"]
+[ext_resource type="Script" path="res://Scenes/bellDeath.gd" id="1_00d7l"]
 [ext_resource type="Texture2D" uid="uid://bam8nrf0woedw" path="res://sprites/death01.png" id="2_www8h"]
 [ext_resource type="Texture2D" uid="uid://c08v64ry5v47y" path="res://sprites/death02.png" id="3_mmrd4"]
 [ext_resource type="Texture2D" uid="uid://dbk02mreye4ak" path="res://sprites/yesNorm.png" id="4_vx5to"]
@@ -42,7 +42,7 @@ keycode = 4194309
 [sub_resource type="Shortcut" id="Shortcut_8p4kf"]
 events = [SubResource("InputEventKey_tohre")]
 
-[node name="pansyDeath" type="Control"]
+[node name="bellDeath" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 317.0
@@ -50,7 +50,7 @@ offset_top = 328.0
 offset_right = 357.0
 offset_bottom = 368.0
 scale = Vector2(0.640001, 0.64)
-script = ExtResource("1_xm8n6")
+script = ExtResource("1_00d7l")
 
 [node name="death01" type="Sprite2D" parent="."]
 texture = ExtResource("2_www8h")

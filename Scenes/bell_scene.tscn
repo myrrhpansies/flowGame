@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bebopxavibfws" path="res://sprites/sunButton.png" id="18_vcie1"]
 [ext_resource type="Script" path="res://Scenes/sun.gd" id="19_qlict"]
 [ext_resource type="Texture2D" uid="uid://2lgmrux2dfnr" path="res://sprites/bellsSheet.png" id="20_hy22w"]
-[ext_resource type="PackedScene" uid="uid://cxodll086p2ml" path="res://Scenes/PansyDeath.tscn" id="21_gbw64"]
+[ext_resource type="PackedScene" uid="uid://8yyiu1kpflf1" path="res://Scenes/bellDeath.tscn" id="22_v0dvb"]
 
 [sub_resource type="Animation" id="Animation_iasac"]
 resource_name = "blueFadeIn"
@@ -1004,12 +1004,7 @@ position = Vector2(303, 584)
 scale = Vector2(0.61, 0.505)
 texture = ExtResource("15_l27rv")
 
-[node name="bellDeath" parent="." instance=ExtResource("21_gbw64")]
-visible = false
-offset_left = 646.43
-offset_top = 741.055
-offset_right = 686.43
-offset_bottom = 781.055
+[node name="bellDeath" parent="." instance=ExtResource("22_v0dvb")]
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
