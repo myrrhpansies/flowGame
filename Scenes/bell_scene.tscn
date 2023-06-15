@@ -1005,6 +1005,7 @@ scale = Vector2(0.61, 0.505)
 texture = ExtResource("15_l27rv")
 
 [node name="bellDeath" parent="." instance=ExtResource("22_v0dvb")]
+visible = false
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

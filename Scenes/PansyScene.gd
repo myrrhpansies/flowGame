@@ -4,7 +4,6 @@ var testArray = []
 var inputArray = []
 var alive = true
 @onready var panPlay = $Pansy/AnimationPlayer
-@onready var sky = $envCon/envBack
 @onready var skyAnimations = $envCon/skyAnimations
 var checkpoint = 0
 var deathpoint = 0

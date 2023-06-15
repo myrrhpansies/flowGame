@@ -1021,6 +1021,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="pansyDeath" parent="." instance=ExtResource("22_mnsjx")]
+visible = false
 offset_left = 564.0
 offset_top = 304.0
 offset_right = 604.0
