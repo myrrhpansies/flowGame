@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dsl4sc6ndme77"]
+[gd_scene load_steps=43 format=3 uid="uid://dsl4sc6ndme77"]
 
 [ext_resource type="Script" path="res://Scenes/garden.gd" id="1_mprhu"]
 [ext_resource type="Texture2D" uid="uid://xmopdiycgeoh" path="res://sprites/bg01.png" id="1_okuhw"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://frfr56uc36a5" path="res://sprites/gb01.png" id="11_dj6fv"]
 [ext_resource type="AudioStream" uid="uid://b3giehhsvuu26" path="res://sounds/focus.mp3" id="12_8qb3x"]
 [ext_resource type="AudioStream" uid="uid://b6r5apyg66e6i" path="res://sounds/pressed.mp3" id="13_jasg0"]
+[ext_resource type="Texture2D" uid="uid://c2oy2fcd2yfcy" path="res://sprites/paperTexture.png" id="14_i17n0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2uqm1"]
 texture = ExtResource("3_dop0i")
@@ -98,6 +99,9 @@ keycode = 4194309
 
 [sub_resource type="Shortcut" id="Shortcut_h51d4"]
 events = [SubResource("InputEventKey_sph5q")]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dms4f"]
+blend_mode = 2
 
 [node name="Garden" type="Node2D"]
 script = ExtResource("1_mprhu")
@@ -198,6 +202,13 @@ stream = ExtResource("13_jasg0")
 
 [node name="focusSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_8qb3x")
+
+[node name="paperTexture" type="TextureRect" parent="."]
+modulate = Color(0.396078, 1, 1, 0.160784)
+material = SubResource("CanvasItemMaterial_dms4f")
+offset_right = 680.0
+offset_bottom = 678.0
+texture = ExtResource("14_i17n0")
 
 [connection signal="pressed" from="buttCon/pansyButton" to="." method="_on_pansy_button_pressed"]
 [connection signal="pressed" from="buttCon/sunflowerButton" to="." method="_on_sunflower_button_pressed"]

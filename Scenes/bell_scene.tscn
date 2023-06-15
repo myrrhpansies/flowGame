@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://b5cbc6hnfxyat"]
+[gd_scene load_steps=73 format=3 uid="uid://b5cbc6hnfxyat"]
 
 [ext_resource type="Script" path="res://Scenes/bell_scene.gd" id="1_8dsnn"]
 [ext_resource type="AudioStream" uid="uid://ds2iao160gm6t" path="res://sounds/bellSun.mp3" id="2_m40be"]
@@ -22,21 +22,7 @@
 [ext_resource type="Script" path="res://Scenes/sun.gd" id="19_qlict"]
 [ext_resource type="Texture2D" uid="uid://2lgmrux2dfnr" path="res://sprites/bellsSheet.png" id="20_hy22w"]
 [ext_resource type="PackedScene" uid="uid://8yyiu1kpflf1" path="res://Scenes/bellDeath.tscn" id="22_v0dvb"]
-
-[sub_resource type="Animation" id="Animation_iasac"]
-resource_name = "blueFadeIn"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("blueSky:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.517647, 0.745098, 0.74902, 0), Color(0.517647, 0.745098, 0.74902, 1)]
-}
+[ext_resource type="Texture2D" uid="uid://c2oy2fcd2yfcy" path="res://sprites/paperTexture.png" id="23_egxgc"]
 
 [sub_resource type="Animation" id="Animation_mx612"]
 length = 0.001
@@ -63,6 +49,37 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0.239216, 0.329412, 0.329412, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_iasac"]
+resource_name = "blueFadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blueSky:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.517647, 0.745098, 0.74902, 0), Color(0.517647, 0.745098, 0.74902, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_55ok5"]
+resource_name = "blueStill"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blueSky:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.517647, 0.745098, 0.74902, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_f02r0"]
@@ -93,22 +110,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.239216, 0.329412, 0.329412, 1), Color(0.239216, 0.329412, 0.329412, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_55ok5"]
-resource_name = "blueStill"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("blueSky:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.517647, 0.745098, 0.74902, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_mxjmb"]
@@ -520,6 +521,24 @@ tracks/0/keys = {
 "values": [14, 15, 16]
 }
 
+[sub_resource type="Animation" id="Animation_yf1ed"]
+resource_name = "growDeath"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [18, 19]
+}
+
 [sub_resource type="Animation" id="Animation_3w2lq"]
 resource_name = "growRest"
 length = 0.5
@@ -698,24 +717,6 @@ tracks/0/keys = {
 "values": [0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_yf1ed"]
-resource_name = "growDeath"
-length = 0.5
-loop_mode = 1
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [18, 19]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tuxbp"]
 _data = {
 "RESET": SubResource("Animation_hbv8y"),
@@ -736,6 +737,9 @@ _data = {
 "sproutDeath": SubResource("Animation_1avaa"),
 "sproutRest": SubResource("Animation_s6l26")
 }
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_te71q"]
+blend_mode = 2
 
 [node name="bellScene" type="Node2D"]
 script = ExtResource("1_8dsnn")
@@ -1021,6 +1025,15 @@ one_shot = true
 [node name="followTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="paperTexture" type="TextureRect" parent="."]
+modulate = Color(0.180392, 0.329412, 0.419608, 0.27451)
+material = SubResource("CanvasItemMaterial_te71q")
+offset_left = -81.0
+offset_top = -62.0
+offset_right = 919.0
+offset_bottom = 938.0
+texture = ExtResource("23_egxgc")
 
 [connection signal="pressed" from="rain" to="rain" method="_on_pressed"]
 [connection signal="pressed" from="cloud" to="cloud" method="_on_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://b3vlp148xt3yh"]
+[gd_scene load_steps=74 format=3 uid="uid://b3vlp148xt3yh"]
 
 [ext_resource type="Script" path="res://Scenes/sun_scene.gd" id="1_lgmrx"]
 [ext_resource type="AudioStream" uid="uid://bj0p6goplp5ap" path="res://sounds/sunSunnn.mp3" id="2_jslvw"]
@@ -22,21 +22,7 @@
 [ext_resource type="Script" path="res://Scenes/sun.gd" id="19_pqfx4"]
 [ext_resource type="Texture2D" uid="uid://h3t8f7ycpmav" path="res://sprites/sunSheet.png" id="20_l1wq3"]
 [ext_resource type="PackedScene" uid="uid://beq33ljuf66no" path="res://Scenes/sunDeath.tscn" id="22_fvluo"]
-
-[sub_resource type="Animation" id="Animation_iasac"]
-resource_name = "blueFadeIn"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("blueSky:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.517647, 0.745098, 0.74902, 0), Color(0.517647, 0.745098, 0.74902, 1)]
-}
+[ext_resource type="Texture2D" uid="uid://c2oy2fcd2yfcy" path="res://sprites/paperTexture.png" id="23_l5fr8"]
 
 [sub_resource type="Animation" id="Animation_mx612"]
 length = 0.001
@@ -63,6 +49,37 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0.239216, 0.329412, 0.329412, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_iasac"]
+resource_name = "blueFadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blueSky:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.517647, 0.745098, 0.74902, 0), Color(0.517647, 0.745098, 0.74902, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_55ok5"]
+resource_name = "blueStill"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blueSky:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.517647, 0.745098, 0.74902, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_f02r0"]
@@ -93,22 +110,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.239216, 0.329412, 0.329412, 1), Color(0.239216, 0.329412, 0.329412, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_55ok5"]
-resource_name = "blueStill"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("blueSky:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.517647, 0.745098, 0.74902, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_mxjmb"]
@@ -765,6 +766,9 @@ _data = {
 "winRest": SubResource("Animation_qp0ou")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_641jb"]
+blend_mode = 2
+
 [node name="sunScene" type="Node2D"]
 script = ExtResource("1_lgmrx")
 
@@ -1050,6 +1054,15 @@ one_shot = true
 
 [node name="sunDeath" parent="." instance=ExtResource("22_fvluo")]
 visible = false
+
+[node name="paperTexture" type="TextureRect" parent="."]
+modulate = Color(0.396078, 1, 1, 0.160784)
+material = SubResource("CanvasItemMaterial_641jb")
+offset_left = -135.0
+offset_top = -48.0
+offset_right = 865.0
+offset_bottom = 952.0
+texture = ExtResource("23_l5fr8")
 
 [connection signal="pressed" from="rain" to="rain" method="_on_pressed"]
 [connection signal="pressed" from="cloud" to="cloud" method="_on_pressed"]
