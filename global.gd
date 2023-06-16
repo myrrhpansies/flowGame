@@ -1,5 +1,13 @@
 extends Node
+var pansyWin = 0
+var sunWin = 0
+var bellWin = 0
+# Called when the node enters the scene tree for the first time.
 
-var pansyyy 
-var gardennn
+func _ready():
+	pass # Replace with function body.
 
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass

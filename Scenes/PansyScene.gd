@@ -12,17 +12,17 @@ var skyNum = 0
 var looping = true
 var weatherGoing = false
 @onready var blocks = [$dayCounter/HBoxContainer/ColorRect1, $dayCounter/HBoxContainer/ColorRect2, $dayCounter/HBoxContainer/ColorRect3, $dayCounter/HBoxContainer/ColorRect4, $dayCounter/HBoxContainer/ColorRect5, $dayCounter/HBoxContainer/ColorRect6, $dayCounter/HBoxContainer/ColorRect7, $dayCounter/HBoxContainer/ColorRect8, $dayCounter/HBoxContainer/ColorRect9, $dayCounter/HBoxContainer/ColorRect10, $dayCounter/HBoxContainer/ColorRect11, $dayCounter/HBoxContainer/ColorRect12,]
-signal addPansies
+
 
 func _ready():
-	global.pansyyy = self
+
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	$sun.sunPressed.connect(sunny)
 	$rain.rainPressed.connect(rainy)
 	$cloud.cloudPressed.connect(cloudy)
 	generateArray()
-	print(self)
-	print(global.pansyyy)
+
+
 	
 
 
@@ -229,6 +229,8 @@ func _on_death_t_imer_timeout():
 
 func _on_win_timer_timeout():
 	$dayCounter.visible = true	
+	Global.pansyWin += 1
+	print(Global.pansyWin)
 	var countTheDays = 0
 	for i in testArray:
 		blocks[countTheDays].modulate = Color8(255,255,255,255)

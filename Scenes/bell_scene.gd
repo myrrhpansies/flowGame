@@ -227,6 +227,7 @@ func _on_death_t_imer_timeout():
 func _on_win_timer_timeout():
 	$dayCounter.visible = true	
 	var countTheDays = 0
+	Global.bellWin += 1
 	for i in testArray:
 		blocks[countTheDays].modulate = Color8(255,255,255,0)
 		if i == 1:
