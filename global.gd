@@ -1,7 +1,7 @@
 extends Node
-var pansyWin = 0
-var sunWin = 0
-var bellWin = 0
+var pansyWin = 3
+var sunWin = 3
+var bellWin = 3
 # Called when the node enters the scene tree for the first time.
 
 func _ready():

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddhvdnwuyyfvk"]
+
+[ext_resource type="Texture2D" uid="uid://do02dvf8ekl05" path="res://sprites/smallBell01.png" id="1_uy3y8"]
+[ext_resource type="Texture2D" uid="uid://c557c410q8o28" path="res://sprites/smallBell02.png" id="2_0akdv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eg8ka"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uy3y8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0akdv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0akdv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.5
+}]
+
+[node name="smallBells" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_eg8ka")
+autoplay = "default"

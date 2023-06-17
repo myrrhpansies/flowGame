@@ -120,6 +120,7 @@ texture = ExtResource("2_xy1nr")
 stretch_mode = 1
 
 [node name="buttCon" type="HBoxContainer" parent="."]
+z_index = 1
 layout_direction = 2
 offset_left = -1.0
 offset_top = 570.0
@@ -205,6 +206,7 @@ stream = ExtResource("12_8qb3x")
 
 [node name="paperTexture" type="TextureRect" parent="."]
 modulate = Color(0.396078, 1, 1, 0.160784)
+z_index = 2
 material = SubResource("CanvasItemMaterial_dms4f")
 offset_right = 680.0
 offset_bottom = 678.0
