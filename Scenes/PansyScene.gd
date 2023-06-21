@@ -21,7 +21,7 @@ func _ready():
 	$rain.rainPressed.connect(rainy)
 	$cloud.cloudPressed.connect(cloudy)
 	generateArray()
-	$winTimer.start()
+	
 
 	
 

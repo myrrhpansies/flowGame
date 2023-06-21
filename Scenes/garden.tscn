@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dsl4sc6ndme77"]
+[gd_scene load_steps=54 format=3 uid="uid://dsl4sc6ndme77"]
 
 [ext_resource type="Script" path="res://Scenes/garden.gd" id="1_mprhu"]
 [ext_resource type="Texture2D" uid="uid://xmopdiycgeoh" path="res://sprites/bg01.png" id="1_okuhw"]
@@ -13,7 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://frfr56uc36a5" path="res://sprites/gb01.png" id="11_dj6fv"]
 [ext_resource type="AudioStream" uid="uid://b3giehhsvuu26" path="res://sounds/focus.mp3" id="12_8qb3x"]
 [ext_resource type="AudioStream" uid="uid://b6r5apyg66e6i" path="res://sounds/pressed.mp3" id="13_jasg0"]
+[ext_resource type="FontFile" uid="uid://bc481a1s8hxpt" path="res://sounds/Anthelion.ttf" id="14_dp8ua"]
 [ext_resource type="Texture2D" uid="uid://c2oy2fcd2yfcy" path="res://sprites/paperTexture.png" id="14_i17n0"]
+[ext_resource type="Texture2D" uid="uid://gg5s7ethv3m" path="res://sprites/back03.png" id="15_yeddr"]
+[ext_resource type="Texture2D" uid="uid://cjcx0xrl5ocqc" path="res://sprites/back04.png" id="16_733c2"]
+[ext_resource type="AudioStream" uid="uid://bho8fagrlvk1a" path="res://sounds/meadow.mp3" id="18_5dwls"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2uqm1"]
 texture = ExtResource("3_dop0i")
@@ -99,6 +103,30 @@ keycode = 4194309
 
 [sub_resource type="Shortcut" id="Shortcut_h51d4"]
 events = [SubResource("InputEventKey_sph5q")]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svpqv"]
+bg_color = Color(0.831373, 0.635294, 0.643137, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_icv5f"]
+texture = ExtResource("15_yeddr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tu7lh"]
+texture = ExtResource("16_733c2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qt26o"]
+texture = ExtResource("15_yeddr")
+
+[sub_resource type="InputEventKey" id="InputEventKey_ft35v"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="InputEventKey" id="InputEventKey_7tb2o"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_sxh0t"]
+events = [SubResource("InputEventKey_ft35v"), SubResource("InputEventKey_7tb2o")]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dms4f"]
 blend_mode = 2
@@ -204,6 +232,59 @@ stream = ExtResource("13_jasg0")
 [node name="focusSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_8qb3x")
 
+[node name="Control" type="Control" parent="."]
+visible = false
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = 224.0
+offset_top = 216.0
+offset_right = 645.0
+offset_bottom = 716.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = -171.0
+offset_top = -225.0
+offset_right = 367.0
+offset_bottom = 440.0
+color = Color(0.831373, 0.635294, 0.643137, 1)
+
+[node name="TextEdit" type="TextEdit" parent="Control"]
+layout_mode = 0
+offset_left = -148.0
+offset_top = -188.0
+offset_right = 298.0
+offset_bottom = 378.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("14_dp8ua")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_svpqv")
+text = "Flowers can speak, just not as we can. Listen to what they need and you will soon have a bountiful garden. 
+
+Repeat back what they request using the arrow keys or WASD 
+
+Use the space bar or ENTER to select  a button. 
+
+i hope your flowers grow well <3
+"
+placeholder_text = "<null>"
+wrap_mode = 1
+
+[node name="Button" type="Button" parent="Control" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 331.0
+offset_right = 128.0
+offset_bottom = 384.0
+mouse_filter = 1
+shortcut_context = NodePath(".")
+theme_override_styles/normal = SubResource("StyleBoxTexture_icv5f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tu7lh")
+theme_override_styles/focus = SubResource("StyleBoxTexture_qt26o")
+button_mask = 0
+shortcut = SubResource("Shortcut_sxh0t")
+
 [node name="paperTexture" type="TextureRect" parent="."]
 modulate = Color(0.396078, 1, 1, 0.160784)
 z_index = 2
@@ -212,7 +293,16 @@ offset_right = 680.0
 offset_bottom = 678.0
 texture = ExtResource("14_i17n0")
 
+[node name="background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_5dwls")
+volume_db = -32.889
+
+[connection signal="focus_entered" from="buttCon/pansyButton" to="." method="_on_pansy_button_focus_entered"]
 [connection signal="pressed" from="buttCon/pansyButton" to="." method="_on_pansy_button_pressed"]
+[connection signal="focus_entered" from="buttCon/sunflowerButton" to="." method="_on_sunflower_button_focus_entered"]
 [connection signal="pressed" from="buttCon/sunflowerButton" to="." method="_on_sunflower_button_pressed"]
+[connection signal="focus_entered" from="buttCon/bellButton" to="." method="_on_bell_button_focus_entered"]
 [connection signal="pressed" from="buttCon/bellButton" to="." method="_on_bell_button_pressed"]
+[connection signal="focus_entered" from="buttCon/questionButton" to="." method="_on_question_button_focus_entered"]
 [connection signal="pressed" from="buttCon/questionButton" to="." method="_on_question_button_pressed"]
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

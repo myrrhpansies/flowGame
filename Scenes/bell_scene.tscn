@@ -1,9 +1,9 @@
 [gd_scene load_steps=73 format=3 uid="uid://b5cbc6hnfxyat"]
 
 [ext_resource type="Script" path="res://Scenes/bell_scene.gd" id="1_8dsnn"]
-[ext_resource type="AudioStream" uid="uid://ds2iao160gm6t" path="res://sounds/bellSun.mp3" id="2_m40be"]
-[ext_resource type="AudioStream" uid="uid://l4odwgqhk13g" path="res://sounds/bellRain.mp3" id="3_8u3ql"]
-[ext_resource type="AudioStream" uid="uid://cpjip2p0b72xw" path="res://sounds/bellCloud.mp3" id="4_uyynv"]
+[ext_resource type="AudioStream" uid="uid://de25kg41b6q5i" path="res://sounds/bellSun.mp3" id="2_m40be"]
+[ext_resource type="AudioStream" uid="uid://cn4q4yf0apljx" path="res://sounds/bellRain.mp3" id="3_8u3ql"]
+[ext_resource type="AudioStream" uid="uid://b05ld6sw31eky" path="res://sounds/bellCloud.mp3" id="4_uyynv"]
 [ext_resource type="Texture2D" uid="uid://bk22xnqi7fy1f" path="res://sprites/weather/rain02.png" id="4_y11p7"]
 [ext_resource type="Texture2D" uid="uid://dvx5qpqkevae7" path="res://sprites/weather/sun01.png" id="5_knf5r"]
 [ext_resource type="Texture2D" uid="uid://brugfs8mqkjo1" path="res://sprites/weather/sun02.png" id="6_toht0"]
