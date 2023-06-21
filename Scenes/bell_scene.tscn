@@ -1011,6 +1011,10 @@ texture = ExtResource("15_l27rv")
 [node name="bellDeath" parent="." instance=ExtResource("22_v0dvb")]
 visible = false
 
+[node name="back" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
@@ -1038,6 +1042,7 @@ texture = ExtResource("23_egxgc")
 [connection signal="pressed" from="rain" to="rain" method="_on_pressed"]
 [connection signal="pressed" from="cloud" to="cloud" method="_on_pressed"]
 [connection signal="pressed" from="sun" to="sun" method="_on_pressed"]
+[connection signal="timeout" from="back" to="." method="_on_back_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="deathTImer" to="." method="_on_death_t_imer_timeout"]
 [connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]

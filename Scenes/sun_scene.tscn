@@ -1,9 +1,6 @@
-[gd_scene load_steps=74 format=3 uid="uid://b3vlp148xt3yh"]
+[gd_scene load_steps=75 format=3 uid="uid://b3vlp148xt3yh"]
 
 [ext_resource type="Script" path="res://Scenes/sun_scene.gd" id="1_lgmrx"]
-[ext_resource type="AudioStream" uid="uid://bj0p6goplp5ap" path="res://sounds/sunSunnn.mp3" id="2_jslvw"]
-[ext_resource type="AudioStream" uid="uid://d06uc6oe4s35u" path="res://sounds/sunRainnn.mp3" id="3_knili"]
-[ext_resource type="AudioStream" uid="uid://pgvby3q8chyw" path="res://sounds/sunClouddd.mp3" id="4_00y5s"]
 [ext_resource type="Texture2D" uid="uid://bk22xnqi7fy1f" path="res://sprites/weather/rain02.png" id="4_tte03"]
 [ext_resource type="Texture2D" uid="uid://dvx5qpqkevae7" path="res://sprites/weather/sun01.png" id="5_cywrq"]
 [ext_resource type="Texture2D" uid="uid://brugfs8mqkjo1" path="res://sprites/weather/sun02.png" id="6_uom54"]
@@ -16,13 +13,17 @@
 [ext_resource type="Script" path="res://Scenes/rain.gd" id="13_frdb4"]
 [ext_resource type="Texture2D" uid="uid://d4etyl3lvppxf" path="res://sprites/cloudButtonDark.png" id="14_5mkfo"]
 [ext_resource type="Texture2D" uid="uid://c5d85m7f7jqlp" path="res://sprites/cloudButton.png" id="15_4p7n3"]
+[ext_resource type="AudioStream" uid="uid://cig1b4ryrndqd" path="res://sounds/sunRain.mp3" id="15_x8d1q"]
 [ext_resource type="Script" path="res://Scenes/cloud.gd" id="16_p72gp"]
 [ext_resource type="Texture2D" uid="uid://dmdt7e7rroahh" path="res://sprites/sunButtonDark.png" id="17_mi8e8"]
 [ext_resource type="Texture2D" uid="uid://bebopxavibfws" path="res://sprites/sunButton.png" id="18_rbkb2"]
+[ext_resource type="AudioStream" uid="uid://buje7qdnpmni0" path="res://sounds/sunCloud.mp3" id="19_pa5p5"]
 [ext_resource type="Script" path="res://Scenes/sun.gd" id="19_pqfx4"]
 [ext_resource type="Texture2D" uid="uid://h3t8f7ycpmav" path="res://sprites/sunSheet.png" id="20_l1wq3"]
 [ext_resource type="PackedScene" uid="uid://beq33ljuf66no" path="res://Scenes/sunDeath.tscn" id="22_fvluo"]
+[ext_resource type="PackedScene" uid="uid://cpvkvlldhpuqi" path="res://Scenes/win_screen.tscn" id="23_6bu10"]
 [ext_resource type="Texture2D" uid="uid://c2oy2fcd2yfcy" path="res://sprites/paperTexture.png" id="23_l5fr8"]
+[ext_resource type="AudioStream" uid="uid://cbsgffncy5hm8" path="res://sounds/sunSun.mp3" id="23_xayia"]
 
 [sub_resource type="Animation" id="Animation_mx612"]
 length = 0.001
@@ -642,6 +643,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_sx6qr"]
 resource_name = "singRight"
 length = 0.5
+loop_mode = 1
 step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -659,6 +661,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_w5jtw"]
 resource_name = "singUp"
 length = 0.5
+loop_mode = 1
 step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -774,15 +777,15 @@ script = ExtResource("1_lgmrx")
 
 [node name="sunBeep2" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-242, 31)
-stream = ExtResource("2_jslvw")
+stream = ExtResource("23_xayia")
 
 [node name="rainBeep2" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(321, 447)
-stream = ExtResource("3_knili")
+stream = ExtResource("15_x8d1q")
 
 [node name="cloudBeep2" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(242, 534)
-stream = ExtResource("4_00y5s")
+stream = ExtResource("19_pa5p5")
 
 [node name="fullBack" type="ColorRect" parent="."]
 offset_left = -265.0
@@ -893,7 +896,7 @@ shortcut = SubResource("Shortcut_gyrya")
 script = ExtResource("13_frdb4")
 
 [node name="rainBeep" type="AudioStreamPlayer2D" parent="rain"]
-stream = ExtResource("3_knili")
+stream = ExtResource("15_x8d1q")
 
 [node name="cloud" type="Button" parent="."]
 offset_left = 242.0
@@ -909,7 +912,7 @@ shortcut = SubResource("Shortcut_1h6i7")
 script = ExtResource("16_p72gp")
 
 [node name="cloudBeep" type="AudioStreamPlayer2D" parent="cloud"]
-stream = ExtResource("4_00y5s")
+stream = ExtResource("19_pa5p5")
 
 [node name="sun" type="Button" parent="."]
 offset_left = 166.0
@@ -927,7 +930,7 @@ script = ExtResource("19_pqfx4")
 
 [node name="sunBeep" type="AudioStreamPlayer2D" parent="sun"]
 position = Vector2(-408, -417)
-stream = ExtResource("2_jslvw")
+stream = ExtResource("23_xayia")
 
 [node name="sunFlower" type="Sprite2D" parent="."]
 position = Vector2(306, 233)
@@ -1052,7 +1055,14 @@ one_shot = true
 wait_time = 0.5
 one_shot = true
 
+[node name="back" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
 [node name="sunDeath" parent="." instance=ExtResource("22_fvluo")]
+visible = false
+
+[node name="winScreen" parent="." instance=ExtResource("23_6bu10")]
 visible = false
 
 [node name="paperTexture" type="TextureRect" parent="."]
@@ -1071,3 +1081,4 @@ texture = ExtResource("23_l5fr8")
 [connection signal="timeout" from="deathTImer" to="." method="_on_death_t_imer_timeout"]
 [connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]
 [connection signal="timeout" from="followTimer" to="." method="_on_follow_timer_timeout"]
+[connection signal="timeout" from="back" to="." method="_on_back_timeout"]

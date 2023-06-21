@@ -20,6 +20,7 @@ func _ready():
 	$rain.rainPressed.connect(rainy)
 	$cloud.cloudPressed.connect(cloudy)
 	generateArray()
+	$winTimer.start()
 	
 
 
@@ -237,6 +238,8 @@ func _on_win_timer_timeout():
 			$sunBeep2.play()
 			await $sunBeep2.finished
 			bellPlay.stop()
+			if countTheDays == 12:
+				$back.start()
 		if i == 2:
 			print(i)
 			countTheDays += 1
@@ -244,6 +247,8 @@ func _on_win_timer_timeout():
 			$rainBeep2.play()
 			await $rainBeep2.finished
 			bellPlay.stop()
+			if countTheDays == 12:
+				$back.start()
 		if i == 3:
 			print(i)
 			countTheDays += 1
@@ -251,6 +256,12 @@ func _on_win_timer_timeout():
 			$cloudBeep2.play()
 			await $cloudBeep2.finished
 			bellPlay.stop()
+			if countTheDays == 12:
+				$back.start()
 			
 func _on_follow_timer_timeout():
 	followMe()
+
+
+func _on_back_timeout():
+	get_tree().change_scene_to_file("res://Scenes/garden.tscn")

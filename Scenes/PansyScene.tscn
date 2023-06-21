@@ -1020,6 +1020,8 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
+[node name="back" type="Timer" parent="."]
+
 [node name="followTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
@@ -1046,4 +1048,5 @@ texture = ExtResource("23_wimgd")
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="deathTImer" to="." method="_on_death_t_imer_timeout"]
 [connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]
+[connection signal="timeout" from="back" to="." method="_on_back_timeout"]
 [connection signal="timeout" from="followTimer" to="." method="_on_follow_timer_timeout"]

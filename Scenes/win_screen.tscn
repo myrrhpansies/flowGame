@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://cpvkvlldhpuqi"]
+
+[ext_resource type="Texture2D" uid="uid://d18qsyxalf5ah" path="res://sprites/back01.png" id="2_5vsq6"]
+[ext_resource type="Texture2D" uid="uid://wa644ce8enj1" path="res://sprites/back02.png" id="3_gi1cq"]
+[ext_resource type="Texture2D" uid="uid://gg5s7ethv3m" path="res://sprites/back03.png" id="4_fd4m2"]
+[ext_resource type="Texture2D" uid="uid://cjcx0xrl5ocqc" path="res://sprites/back04.png" id="5_5gvve"]
+[ext_resource type="AudioStream" uid="uid://b6r5apyg66e6i" path="res://sounds/pressed.mp3" id="6_8gtak"]
+
+[sub_resource type="GDScript" id="GDScript_8x08e"]
+script/source = "extends Node2D
+
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$winButton.grab_focus()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_win_button_pressed():
+	$pressedSound.play()
+	get_tree().change_scene_to_file(\"res://Scenes/garden.tscn\")
+"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekyp1"]
+texture = ExtResource("4_fd4m2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vvpv"]
+texture = ExtResource("5_5gvve")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w06hx"]
+texture = ExtResource("4_fd4m2")
+
+[sub_resource type="InputEventKey" id="InputEventKey_tuq18"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_boe6u"]
+events = [SubResource("InputEventKey_tuq18")]
+
+[node name="winScreen" type="Node2D"]
+script = SubResource("GDScript_8x08e")
+
+[node name="win1" type="Sprite2D" parent="."]
+position = Vector2(334.5, 409.5)
+scale = Vector2(0.567, 0.655)
+texture = ExtResource("2_5vsq6")
+
+[node name="win2" type="Sprite2D" parent="."]
+position = Vector2(343, 409)
+scale = Vector2(0.6055, 0.615)
+texture = ExtResource("3_gi1cq")
+
+[node name="winButton" type="Button" parent="." node_paths=PackedStringArray("shortcut_context")]
+offset_left = 381.0
+offset_top = 462.0
+offset_right = 514.0
+offset_bottom = 549.0
+mouse_filter = 2
+shortcut_context = NodePath(".")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ekyp1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4vvpv")
+theme_override_styles/focus = SubResource("StyleBoxTexture_w06hx")
+button_mask = 0
+shortcut = SubResource("Shortcut_boe6u")
+
+[node name="pressedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_8gtak")
+
+[connection signal="pressed" from="winButton" to="." method="_on_win_button_pressed"]
